@@ -5,6 +5,8 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'language' => 'uz',
+    'sourceLanguage' => 'uz',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -15,12 +17,12 @@ $config = [
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
-                    'js'=>[]
+                    'js'=>[],
                 ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
-                    'js'=>[]
+                    'js'=>[],
                 ],
-                
+
                 'yii\bootstrap\BootstrapAsset' => [
                     'css' => [],
                 ],
@@ -28,13 +30,20 @@ $config = [
                     'linkAssets' => true,
             ],
         ],
-        'request' => [
-            'baseUrl' => '',
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'herHdn7ctFZ65-jGohfuehp4fkyWbOmY',
-        ],
         'view' => [
             'class' => 'daxslab\taggedview\View',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'uz',
+                ],
+            ],
+        ],
+        'request' => [
+            'baseUrl' => '',
+            'cookieValidationKey' => 'bykZPOsWZRB3GLrfqGf9bPR76qZp78n4',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -48,9 +57,6 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [
@@ -63,20 +69,26 @@ $config = [
             ],
         ],
         'db' => $db,
-        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        
     ],
     'params' => $params,
 
     'modules' => [
-        'ux_admin' => [
-            'class' => 'app\modules\ux_admin\ux_admin',
+        'admin' => [
+            'class' => 'app\modules\admin\admin',
+        ],
+        'jodit' => [
+            'class' => 'yii2jodit\JoditModule',
+            'extensions'=>['jpg','png','gif'],
+            'root'=> '@webroot/uploads/',
+            'baseurl'=> '@web/uploads/',
+            'maxFileSize'=> '20mb',
+            'defaultPermission'=> 0775,
         ],
     ],
 ];
