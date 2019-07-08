@@ -1,11 +1,23 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use yii\bootstrap\ActiveForm;
+use unclead\multipleinput\MultipleInput;
+use yii\web\View;
+use yii\web\JsExpression;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Contact */
-/* @var $form yii\widgets\ActiveForm */
+$url = \Yii::$app->urlManager->baseUrl . '/images/flags/';
+$format = <<< SCRIPT
+function format(state) {
+    if (!state.id) return state.text; // optgroup
+    src = '$url' +  state.text + '.gif'
+    return '<img style="width: 20px;" src="' + src + '"/>' + ' ' +  state.text;
+}
+SCRIPT;
+$escape = new JsExpression("function(m) { return m; }");
+$this->registerJs($format, View::POS_HEAD);
+
 ?>
 
 <div class="contact-form">
@@ -30,11 +42,34 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'lat')->textInput() ?>
 
-    <?= $form->field($model, 'adress_uz')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'adress_ru')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'adress_en')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'adress')->widget(MultipleInput::className(), [
+        'max' => 99,
+        'columns' => [
+            [
+                'name'  => 'adress_language',
+                'type'  => \kartik\select2\Select2::className(),
+                'title' => 'Tili',
+                'options' => [
+                    'options' => [
+                        'placeholder' => 'Tilni tanlash...',
+                    ],
+                    'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
+                    'pluginOptions' => [
+                        'templateResult' => new JsExpression('format'),
+                            'templateSelection' => new JsExpression('format'),
+                            'escapeMarkup' => $escape,
+                            'allowClear' => true
+                    ],
+                ],
+            ],
+            [
+                'name' => 'adress_text',
+                'type' => 'textInput',
+                'title' => 'Manzil matni',
+            ],
+        ],
+     ]);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

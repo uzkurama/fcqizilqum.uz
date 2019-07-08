@@ -41,7 +41,7 @@ AdminAsset::register($this);
                 'items' => [
                     ['label' => 'Bosh sahifa', 'url' => ['/admin/default/index']],
                     ['label' => 'Yangiliklar', 'url' => ['/admin/news/index']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
+                    ['label' => 'Contact', 'url' => ['/admin/contact/view', 'id' => 1]],
                     Yii::$app->user->isGuest ? (
                         ['label' => 'Login', 'url' => ['/site/login']]
                     ) : ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]

@@ -37,9 +37,9 @@ class Contact extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tel', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'mover', 'lng', 'lat', 'adress_uz', 'adress_ru', 'adress_en'], 'required'],
             [['lng', 'lat'], 'number'],
-            [['tel', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'mover', 'adress_uz', 'adress_ru', 'adress_en'], 'string', 'max' => 500],
+            [['tel', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'mover'], 'string', 'max' => 500],
+            [['adress'], 'safe'],
         ];
     }
 
@@ -59,9 +59,7 @@ class Contact extends \yii\db\ActiveRecord
             'mover' => 'Mover',
             'lng' => 'Lng',
             'lat' => 'Lat',
-            'adress_uz' => 'Adress Uz',
-            'adress_ru' => 'Adress Ru',
-            'adress_en' => 'Adress En',
+            'adress' => 'Manzil',
         ];
     }
 }

@@ -36,7 +36,8 @@
         "yiimaker/yii2-social-share": "~2.3",
         "kv4nt/yii2-owl-carousel2": "*",
         "jodit/yii2-jodit": "^1.1",
-        "mihaildev/yii2-elfinder": "*"
+        "mihaildev/yii2-elfinder": "*",
+        "unclead/yii2-multiple-input": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

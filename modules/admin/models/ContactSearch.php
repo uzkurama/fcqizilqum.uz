@@ -18,7 +18,7 @@ class ContactSearch extends Contact
     {
         return [
             [['id'], 'integer'],
-            [['tel', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'mover', 'adress_uz', 'adress_ru', 'adress_en'], 'safe'],
+            [['tel', 'email', 'facebook', 'instagram', 'youtube', 'telegram', 'mover', 'adress'], 'safe'],
             [['lng', 'lat'], 'number'],
         ];
     }
@@ -71,9 +71,7 @@ class ContactSearch extends Contact
             ->andFilterWhere(['like', 'youtube', $this->youtube])
             ->andFilterWhere(['like', 'telegram', $this->telegram])
             ->andFilterWhere(['like', 'mover', $this->mover])
-            ->andFilterWhere(['like', 'adress_uz', $this->adress_uz])
-            ->andFilterWhere(['like', 'adress_ru', $this->adress_ru])
-            ->andFilterWhere(['like', 'adress_en', $this->adress_en]);
+            ->andFilterWhere(['like', 'adress', $this->adress]);
 
         return $dataProvider;
     }

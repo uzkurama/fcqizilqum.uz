@@ -3872,3 +3872,8 @@ fieldset[disabled] .btn-neutral.active {
     background: #fff;
     margin: 10px 0;
 }
+
+.language_flag {
+    width: 40px;
+    margin: 0 5px;
+}
