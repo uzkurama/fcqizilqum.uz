@@ -13,6 +13,18 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
+    'controllerMap' => [
+        'fixture' => [ // Fixture generation command line.
+            'class' => 'yii\faker\FixtureController',
+        ],
+        'dump' => [
+            'class' => 'hzhihua\dump\DumpController',
+            'db' => 'db',
+            'generateFilePath' => '@app/migrations',
+            'filePrefix' => '_qizilqum_',
+            'tableOptions' => 'ENGINE=InnoDB CHARACTER SET=utf8 COLLATE=utf8_general_ci',
+        ],
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -28,13 +40,6 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
 ];
 
 if (YII_ENV_DEV) {

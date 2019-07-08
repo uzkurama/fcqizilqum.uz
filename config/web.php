@@ -26,7 +26,7 @@ $config = [
                     'name' => 'Global'
                 ],
             ],
-        ]
+        ],
     ],
     'components' => [
         'assetManager' => [

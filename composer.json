@@ -37,7 +37,8 @@
         "kv4nt/yii2-owl-carousel2": "*",
         "jodit/yii2-jodit": "^1.1",
         "mihaildev/yii2-elfinder": "*",
-        "unclead/yii2-multiple-input": "~2.0"
+        "unclead/yii2-multiple-input": "~2.0",
+        "hzhihua/yii2-dump": "1.0.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
