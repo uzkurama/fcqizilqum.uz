@@ -47,12 +47,12 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Sarlavha',
             'content' => 'Content',
-            'pic' => 'Pic',
-            'date' => 'Date',
-            'language_id' => 'Language ID',
-            'tags' => 'Tags',
+            'pic' => 'Rasm',
+            'date' => 'Sanasi',
+            'language_id' => 'Tili',
+            'tags' => 'Kalit so\'zlar',
         ];
     }
 }

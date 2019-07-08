@@ -5,6 +5,20 @@ use yii\bootstrap\ActiveForm;
 use mihaildev\elfinder\InputFile;
 use mihaildev\elfinder\ElFinder;
 use yii\web\JsExpression;
+use kartik\select2\Select2;
+use yii\helpers\Arrayhelper;
+use yii\web\View;
+
+$url = \Yii::$app->urlManager->baseUrl . '/images/flags/';
+$format = <<< SCRIPT
+function format(state) {
+    if (!state.id) return state.text; // optgroup
+    src = '$url' +  state.text + '.gif'
+    return '<img style="width: 20px;" src="' + src + '"/>' + ' ' +  state.text;
+}
+SCRIPT;
+$escape = new JsExpression("function(m) { return m; }");
+$this->registerJs($format, View::POS_HEAD);
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\News */
@@ -35,9 +49,18 @@ use yii\web\JsExpression;
 
     <?= $form->field($model, 'date')->input('date') ?>
 
-    <?= $form->field($model, 'language_id')->textInput() ?>
+    <?= $form->field($model, 'language_id')->widget(Select2::classname(), [
+        'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
+        'options' => ['placeholder' => 'Tilni tanlash...'],
+        'pluginOptions' => [
+            'templateResult' => new JsExpression('format'),
+                'templateSelection' => new JsExpression('format'),
+                'escapeMarkup' => $escape,
+                'allowClear' => true
+        ],
+    ])->label(false); ?>
 
-    <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'tags')->textInput(['maxlength' => true])->hint('Har bir kalit so\'zini vergul bilan qo\'ying, Masalan: futbol, koptok, ...') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

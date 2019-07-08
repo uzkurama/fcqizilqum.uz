@@ -77,7 +77,7 @@ AdminAsset::register($this);
 
         <div class="content">
             <div class="container-fluid">
-                <?= Alert::widget() ?>
+                <?= \dominus77\sweetalert2\Alert::widget(['useSessionFlash' => true]) ?>
                 <?= $content;?>
             </div>
         </div>

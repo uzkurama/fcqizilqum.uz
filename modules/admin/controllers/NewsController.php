@@ -37,6 +37,7 @@ class NewsController extends Controller
     {
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort->defaultOrder = ['date' => SORT_DESC];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -67,7 +68,13 @@ class NewsController extends Controller
         $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_SUCCESS, [
+                [
+                    'title' => 'Yangilik tuzildi',
+                    'confirmButtonText' => 'Ok!',
+                ]
+             ]);
+            return $this->redirect('index');
         }
 
         return $this->render('create', [
@@ -87,7 +94,13 @@ class NewsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_SUCCESS, [
+                [
+                    'title' => 'Yangilik yangilandi',
+                    'confirmButtonText' => 'Ok!',
+                ]
+             ]);
+            return $this->redirect('index');
         }
 
         return $this->render('update', [

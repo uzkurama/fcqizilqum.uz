@@ -18,23 +18,15 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'content') ?>
-
-    <?= $form->field($model, 'pic') ?>
-
     <?= $form->field($model, 'date') ?>
 
-    <?php // echo $form->field($model, 'language_id') ?>
-
-    <?php // echo $form->field($model, 'tags') ?>
+    <?= $form->field($model, 'tags') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
