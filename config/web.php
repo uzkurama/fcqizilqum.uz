@@ -31,25 +31,6 @@ $config = [
     'components' => [
         'assetManager' => [
             'bundles' => [
-                'yii\web\YiiAsset' => [
-                    'js'=>[]
-                ],
-                'yii\widgets\ActiveFormAsset' => [
-                    'js'=>[]
-                ],
-                'yii\web\JqueryAsset' => [
-                    'sourcePath' => null,
-                    'js'=>[
-                        '/admin_assets/js/jquery.3.2.1.min.js',
-                    ],
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'js'=>[]
-                ],
-
-                'yii\bootstrap\BootstrapAsset' => [
-                    'css' => [],
-                ],
                 'class' => 'yii\web\AssetManager',
                     'linkAssets' => true,
             ],
