@@ -27,13 +27,11 @@ class AdminAsset extends AssetBundle
         'admin_assets/css/pe-icon-7-stroke.css',
     ];
     public $js = [
-    'admin_assets/js/jquery.3.2.1.min.js',
-	'admin_assets/js/bootstrap.min.js',
-    'admin_assets/js/bootstrap-notify.js',
-	'admin_assets/js/light-bootstrap-dashboard.js',
+        'admin_assets/js/jquery.3.2.1.min.js',
+        'admin_assets/js/bootstrap.min.js',
+        'admin_assets/js/bootstrap-notify.js',
+        'admin_assets/js/light-bootstrap-dashboard.js',
     ];
     public $depends = [
-//        'yii\web\YiiAsset',
-//        'yii\bootstrap\BootstrapAsset',
     ];
 }

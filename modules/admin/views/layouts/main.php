@@ -5,6 +5,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -27,18 +28,10 @@ AdminAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="<?= Yii::$app->request->baseUrl.'admin_assets/img/sidebar-5.jpg'?>">
-
-    <!--
-
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
+    <div class="sidebar" data-color="blue" data-image="<?= Yii::$app->request->baseUrl.'/admin_assets/img/sidebar-5.jpg'?>">
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
+                <a href="<?= Url::to(['/admin/default/index']);?>" class="simple-text">
                     Admin Panel
                 </a>
             </div>
@@ -46,21 +39,12 @@ AdminAsset::register($this);
             <?= Nav::widget([
                 'options' => ['class' => 'nav'],
                 'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
+                    ['label' => 'Bosh sahifa', 'url' => ['/admin/default/index']],
+                    ['label' => 'Yangiliklar', 'url' => ['/admin/news/index']],
                     ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
                         ['label' => 'Login', 'url' => ['/site/login']]
-                    ) : (
-                        '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                            'Logout (' . Yii::$app->user->identity->username . ')',
-                            ['class' => 'btn btn-link logout']
-                        )
-                        . Html::endForm()
-                        . '</li>'
-                    )
+                    ) : ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]
                 ],
             ]);?>
     	</div>

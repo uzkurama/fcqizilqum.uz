@@ -3867,3 +3867,8 @@ fieldset[disabled] .btn-neutral.active {
         -webkit-overflow-scrolling: touch;
     }
 }
+
+.breadcrumb {
+    background: #fff;
+    margin: 10px 0;
+}
