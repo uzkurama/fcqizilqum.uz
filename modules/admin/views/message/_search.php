@@ -24,7 +24,7 @@ $all = \app\models\Message::find()->count();
                 $all_active = '';
             }
         ?>
-        <a style="padding: 0" href="<?= \yii\helpers\Url::to(['/ud-admin/message/index']) ?>" class="btn <?= $all_active?>  btn-link">
+        <a style="padding: 0" href="<?= \yii\helpers\Url::to(['/admin/message/index']) ?>" class="btn <?= $all_active?>  btn-link">
             <?= Yii::t('yii','All') ?> <span class="count-post"> (<?= $all ?>) </span>
         </a>
         <?php
@@ -39,7 +39,7 @@ $all = \app\models\Message::find()->count();
                 }
 
                 ?>
-               | <a style="padding: 0"  href="<?= \yii\helpers\Url::to(['/ud-admin/message/index', 'MessageSearch[language]'=>$language->languageCode->language_code]) ?>" class="btn <?= $is_active?>  btn-link">
+               | <a style="padding: 0"  href="<?= \yii\helpers\Url::to(['/admin/message/index', 'MessageSearch[language]'=>$language->languageCode->language_code]) ?>" class="btn <?= $is_active?>  btn-link">
                     <?= $language->name ?> <span class="count-post"> (<?= $count ?>) </span>
                 </a>
             <?php

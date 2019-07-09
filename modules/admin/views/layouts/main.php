@@ -45,7 +45,7 @@ AdminAsset::register($this);
                     ['label' => 'Yangiliklar', 'url' => ['/admin/news/index']],
                     ['label' => 'Contact', 'url' => ['/admin/contact/view', 'id' => 1]],
                     [
-                        'label' => 'Yangiliklar',
+                        'label' => 'Sayt tillari',
                         'items' => [
                                 ['label' => 'Tillar', 'url' => ['/admin/language/index']],
                                 ['label' => 'Asosiy so\'zlar', 'url' => ['/admin/source-message/index']],

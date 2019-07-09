@@ -43,13 +43,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function($model){
                     $actions = '';
                     $actions .= '<div class="post-actions col-md-12" style="padding: 0">
-                                    <a  href="'.\yii\helpers\Url::to(['/ud-admin/source-message/update','id'=>$model->id]).'">'.
+                                    <a  href="'.\yii\helpers\Url::to(['/admin/source-message/update','id'=>$model->id]).'">'.
                         Yii::t('yii','Edit') .'
                                     </a> |
-                                    <a  href="'.\yii\helpers\Url::to(['/ud-admin/source-message/view','id'=>$model->id]).'">'.
+                                    <a  href="'.\yii\helpers\Url::to(['/admin/source-message/view','id'=>$model->id]).'">'.
                         Yii::t('yii','View') .'
                                     </a> |
-                                    <a  class="text-danger" href="'.\yii\helpers\Url::to(['/ud-admin/source-message/delete','id'=>$model->id]).'"
+                                    <a  class="text-danger" href="'.\yii\helpers\Url::to(['/admin/source-message/delete','id'=>$model->id]).'"
                                          data-confirm="'.Yii::t('yii','Are you sure you want to delete this item?').'" data-method="post"
                                     >'.
                         Yii::t('yii','Delete Permanently') .'

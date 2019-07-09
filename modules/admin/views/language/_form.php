@@ -27,7 +27,7 @@ use yii\web\JsExpression;
     <div class="col-md-6">
         <?php
         // Templating example of formatting each list element
-        $url = \Yii::getAlias('@web_site') . '/media/flags/';
+        $url = Yii::$app->request->baseUrl . '/images/flags/';
         $format = <<< SCRIPT
 function format(state) {
     if (!state.id) return state.text; // optgroup

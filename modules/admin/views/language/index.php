@@ -54,22 +54,22 @@ $this->params['breadcrumbs'][] = $this->title;
                         $status = '';
                         $actions = '';
                         $actions .= '<div class="post-actions col-md-12" style="padding: 0">
-                                    <a  href="'.\yii\helpers\Url::to(['/ud-admin/language/update','id'=>$model->id]).'">'.
+                                    <a  href="'.\yii\helpers\Url::to(['/admin/language/update','id'=>$model->id]).'">'.
                             Yii::t('yii','Edit') .'
                                     </a> |';
                         if ($model->status==0) {
-                            $actions .= ' <a  data-method="post" href="'.\yii\helpers\Url::to(['/ud-admin/default/status','id'=>$model->id,'status'=>1,'model'=>'language', 'controller'=>'language']).'">'.
+                            $actions .= ' <a  data-method="post" href="'.\yii\helpers\Url::to(['/admin/default/status','id'=>$model->id,'status'=>1,'model'=>'language', 'controller'=>'language']).'">'.
                                 Yii::t('yii','Active') .'
                                     </a> |';
                             $status = '<span class="text-strong"> — '.Yii::t('yii','No Active').'</span>';
                         }
                         else{
-                            $actions .= ' <a  data-method="post" href="'.\yii\helpers\Url::to(['/ud-admin/default/status','id'=>$model->id,'status'=>0,'model'=>'language', 'controller'=>'language']).'">'.
+                            $actions .= ' <a  data-method="post" href="'.\yii\helpers\Url::to(['/admin/default/status','id'=>$model->id,'status'=>0,'model'=>'language', 'controller'=>'language']).'">'.
                                 Yii::t('yii','No Active') .'
                                     </a> |';
                         }
 //                        if($model->languageCode->language_code!='en'){
-                            $actions .= ' <a  class="text-danger" href="'.\yii\helpers\Url::to(['/ud-admin/language/delete','id'=>$model->id]).'"
+                            $actions .= ' <a  class="text-danger" href="'.\yii\helpers\Url::to(['/admin/language/delete','id'=>$model->id]).'"
                                          data-confirm="'.Yii::t('yii','Are you sure you want to delete this item?').'" data-method="post"
                                     >'.
                                 Yii::t('yii','Delete Permanently') .'
@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'language_code_id',
                 'value'=>function($model){
-                    return '<img style="width:30px; height:20px;"  src="'.Yii::getAlias('@web_site').'/media/flags/'.$model->languageCode->language_code.'.gif">';
+                    return '<img style="width:30px; height:20px;"  src="'.Yii::$app->request->baseUrl.'/images/flags/'.$model->languageCode->language_code.'.gif">';
                 },
                 'hAlign'=>'center',
                 'vAlign'=>'middle',

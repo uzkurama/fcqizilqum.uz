@@ -2059,8 +2059,9 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .dropdown-menu {
+    background: #333;
     visibility: hidden;
-    margin: 0;
+    margin: 5px 15px;
     padding: 0;
     border-radius: 10px;
     display: block;
@@ -2139,7 +2140,7 @@ fieldset[disabled] .btn-neutral.active {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
     background-color: #F5F5F5;
-    color: #333333;
+    color: #F5F5F5;
     opacity: 1;
     text-decoration: none;
 }

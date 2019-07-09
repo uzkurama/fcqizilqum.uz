@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\JsExpression;
 use app\models\Language;
-
+use kartik\select2\Select2;
 /* @var $this yii\web\View */
 /* @var $model app\models\LanguageSearch */
 /* @var $form yii\widgets\ActiveForm */
@@ -23,7 +23,7 @@ $active_count = Language::find()->where('status=:status')->params([':status'=>'1
         'method' => 'get',
         'options' => ['id'=>'language-search-form']
     ]); ?>
-    <div class="col-md-12  no-padding  link-a" style="margin: 0" >
+    <div class="col-md-12 no-padding link-a" style="margin: 0" >
         <?php
         if (empty($_GET)) {
             $all_active = 'count-active';
@@ -42,13 +42,13 @@ $active_count = Language::find()->where('status=:status')->params([':status'=>'1
         }
 
         ?>
-        <a href="<?= \yii\helpers\Url::to(['/ud-admin/language/index']) ?>" class="btn <?= $all_active?> btn-link">
+        <a href="<?= \yii\helpers\Url::to(['/admin/language/index']) ?>" class="btn <?= $all_active?> btn-link">
             <?= Yii::t('yii','All') ?> <span class="count-post"> (<?= $all ?>) </span>
         </a>|
-        <a href="<?= \yii\helpers\Url::to(['/ud-admin/language/index','LanguageSearch[status]'=>1]) ?>" class="btn <?= $active?>  btn-link">
+        <a href="<?= \yii\helpers\Url::to(['/admin/language/index','LanguageSearch[status]'=>1]) ?>" class="btn <?= $active?>  btn-link">
             <?= Yii::t('yii','Active') ?> <span class="count-post"> (<?= $active_count ?>) </span>
         </a>|
-        <a href="<?= \yii\helpers\Url::to(['/ud-admin/language/index','LanguageSearch[status]'=>0]) ?>" class="btn <?= $no_active?>  btn-link">
+        <a href="<?= \yii\helpers\Url::to(['/admin/language/index','LanguageSearch[status]'=>0]) ?>" class="btn <?= $no_active?>  btn-link">
             <?= Yii::t('yii','No Active') ?> <span class="count-post"> (<?= $no_active_count ?>) </span>
         </a>
         <span class="col-md-4 pull-right text-right"  style="padding: 0">
@@ -63,12 +63,12 @@ $active_count = Language::find()->where('status=:status')->params([':status'=>'1
             <?php
             $form2 = ActiveForm::begin([
                 'method' => 'post',
-                'action' => ['/ud-admin/default/mark','model'=>'language','controller'=>'language'],
+                'action' => ['/admin/default/mark','model'=>'language','controller'=>'language'],
                 'options'=>['id'=>'checkBoxForm',  'name'=>'myForm']
             ]);
             ?>
             <div class="col-md-8"  style="padding: 0">
-                <?= \kartik\widgets\Select2::widget([
+                <?= Select2::widget([
                     'name'=>'action',
                     'data'=>\app\modules\admin\controllers\DefaultController::getStatus1(),
                     'hideSearch'=>true,
@@ -99,13 +99,13 @@ $active_count = Language::find()->where('status=:status')->params([':status'=>'1
 
                 <?php
                 // Templating example of formatting each list element
-                $url = \Yii::getAlias('@web_site') . '/media/flags/';
+                $url = Yii::$app->request->baseUrl . '/images/flags/';
                 $format = <<<ASD
                 function format(state) {
                     if (!state.id) return state.text; // optgroup
                     src = '$url'+state.text+ ".gif";
                     return "<img style=\"width:30px; height:20px;\" src=\'" + src + "\'/> " + state.text.split(".")[0];
-                }z
+                }
 ASD;
 
                 $escape = new JsExpression("function(m) { return m; }");
@@ -114,7 +114,7 @@ ASD;
 
                 $data =  \app\modules\admin\controllers\DefaultController::jsonDecodeArray($data,1);
 
-                echo $form->field($model, 'language_code_id')->widget(\kartik\select2\Select2::classname(), [
+                echo $form->field($model, 'language_code_id')->widget(Select2::classname(), [
                     'data'=>$data,
                     'options' => ['form'=>'language-search-form','placeholder' => Yii::t('yii','Language Code'),],
                     'pluginOptions' => [

@@ -18,26 +18,8 @@ class LanguageController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'ruleConfig' => [
-                    'class' => 'app\components\AccessRule' // OUR OWN RULE
-                ],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['Moderator'],
-                    ],
-                    [
-                        'actions'=>['delete'],
-                        'allow' => false,
-                        'roles' => ['Moderator'],
-                    ],
-                    [
-                        'allow' => true,
-                        'roles' => ['Admin'],
-                    ],
-                ],
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),

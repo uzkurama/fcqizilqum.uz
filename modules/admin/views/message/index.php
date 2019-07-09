@@ -45,13 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function($model){
                     $actions = '';
                     $actions .= '<div class="post-actions col-md-12" style="padding: 0">
-                                    <a  href="'.\yii\helpers\Url::to(['/ud-admin/message/update','id'=>$model->id,'language'=>$model->language]).'">'.
+                                    <a  href="'.\yii\helpers\Url::to(['/admin/message/update','id'=>$model->id,'language'=>$model->language]).'">'.
                         Yii::t('yii','Edit') .'
                                     </a> |
-                                    <a  href="'.\yii\helpers\Url::to(['/ud-admin/message/view','id'=>$model->id,'language'=>$model->language]).'">'.
+                                    <a  href="'.\yii\helpers\Url::to(['/admin/message/view','id'=>$model->id,'language'=>$model->language]).'">'.
                         Yii::t('yii','View') .'
                                     </a> |
-                                    <a  class="text-danger" href="'.\yii\helpers\Url::to(['/ud-admin/message/delete','id'=>$model->id,'language'=>$model->language]).'"
+                                    <a  class="text-danger" href="'.\yii\helpers\Url::to(['/admin/message/delete','id'=>$model->id,'language'=>$model->language]).'"
                                          data-confirm="'.Yii::t('yii','Are you sure you want to delete this item?').'" data-method="post"
                                     >'.
                         Yii::t('yii','Delete Permanently') .'
@@ -79,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>Yii::t('yii','Language Code'),
                 'format'=>"raw",
                 'value'=>function($model){
-                    $img =  '<img style="width:30px; height:20px;"  src="'.Yii::getAlias('@web_site').'/media/flags/'.$model->language.'.gif">';
+                    $img =  '<img style="width:30px; height:20px;"  src="'.Yii::$app->request->baseUrl.'/images/flags/'.$model->language.'.gif">';
 
                     return $img.' — ' .$model->language;
                 }
