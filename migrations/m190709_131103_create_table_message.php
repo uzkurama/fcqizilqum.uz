@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m190709_121842_create_table_teams extends Migration
+class m190709_131103_create_table_message extends Migration
 {
     public function up()
     {
@@ -11,18 +11,17 @@ class m190709_121842_create_table_teams extends Migration
             $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%teams}}', [
+        $this->createTable('{{%message}}', [
             'id' => $this->integer()->notNull(),
-            'name' => $this->string()->notNull(),
-            'logo' => $this->string()->notNull(),
-            'region_id' => $this->integer()->notNull(),
-            'language_id' => $this->integer()->notNull(),
+            'language' => $this->string()->notNull()->comment('Language'),
+            'translation' => $this->text()->comment('Translation'),
         ], $tableOptions);
 
+        $this->addPrimaryKey('PRIMARYKEY', '{{%message}}', ['id', 'language']);
     }
 
     public function down()
     {
-        $this->dropTable('{{%teams}}');
+        $this->dropTable('{{%message}}');
     }
 }

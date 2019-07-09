@@ -44,6 +44,14 @@ AdminAsset::register($this);
                     ['label' => 'Bosh sahifa', 'url' => ['/admin/default/index']],
                     ['label' => 'Yangiliklar', 'url' => ['/admin/news/index']],
                     ['label' => 'Contact', 'url' => ['/admin/contact/view', 'id' => 1]],
+                    [
+                        'label' => 'Yangiliklar',
+                        'items' => [
+                                ['label' => 'Tillar', 'url' => ['/admin/language/index']],
+                                ['label' => 'Asosiy so\'zlar', 'url' => ['/admin/source-message/index']],
+                                ['label' => 'Tarjimalar', 'url' => ['/admin/message/index']],
+                        ],
+                    ],
                     Yii::$app->user->isGuest ? (
                         ['label' => 'Login', 'url' => ['/site/login']]
                     ) : ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]
@@ -102,6 +110,7 @@ AdminAsset::register($this);
         <div class="content">
             <div class="container-fluid">
                 <?= \dominus77\sweetalert2\Alert::widget(['useSessionFlash' => true]) ?>
+                <?= Alert::widget() ?>
                 <?= $content;?>
             </div>
         </div>

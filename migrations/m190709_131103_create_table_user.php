@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m190709_121842_create_table_user extends Migration
+class m190709_131103_create_table_user extends Migration
 {
     public function up()
     {
@@ -16,16 +16,17 @@ class m190709_121842_create_table_user extends Migration
             'username' => $this->string()->notNull(),
             'auth_key' => $this->string()->notNull(),
             'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string(),
-            'email' => $this->string()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue('10'),
+            'confirmation_token' => $this->string(),
+            'status' => $this->integer()->notNull()->defaultValue('1'),
+            'superadmin' => $this->smallInteger()->defaultValue('0'),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
+            'registration_ip' => $this->string(),
+            'bind_to_ip' => $this->string(),
+            'email' => $this->string(),
+            'email_confirmed' => $this->smallInteger()->notNull()->defaultValue('0'),
         ], $tableOptions);
 
-        $this->createIndex('email', '{{%user}}', 'email', true);
-        $this->createIndex('password_reset_token', '{{%user}}', 'password_reset_token', true);
-        $this->createIndex('username', '{{%user}}', 'username', true);
     }
 
     public function down()
