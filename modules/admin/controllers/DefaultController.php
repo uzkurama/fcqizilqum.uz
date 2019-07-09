@@ -24,6 +24,12 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionUser()
+    {
+        return $this->render('user');
+    }
+
     public function actionSystem()
     {
         return $this->render('system');
