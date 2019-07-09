@@ -13,6 +13,16 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
+
+    public function behaviors()
+    {
+        return [
+            'ghost-access'=> [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
