@@ -11,7 +11,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
     'activateParents'=>true,
     'items' => [
         [
-            'label' => 'Frontend routes',
+            'label' => 'User Settings',
             'items'=>[
                 ['label'=>'Change own password', 'url'=>['/user-management/auth/change-own-password']],
             ],
