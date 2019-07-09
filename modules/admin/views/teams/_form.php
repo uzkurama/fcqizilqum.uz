@@ -1,11 +1,12 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Arrayhelper;
+use yii\web\JsExpression;
 use yii\bootstrap\ActiveForm;
 use mihaildev\elfinder\InputFile;
-use yii\web\JsExpression;
+use app\modules\admin\models\Regions;
 use kartik\select2\Select2;
-use yii\helpers\Arrayhelper;
 use yii\web\View;
 
 $url = \Yii::$app->urlManager->baseUrl . '/images/flags/';
@@ -19,24 +20,15 @@ SCRIPT;
 $escape = new JsExpression("function(m) { return m; }");
 $this->registerJs($format, View::POS_HEAD);
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\News */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="news-form">
+<div class="teams-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?=$form->field($model, 'content')->widget(\yii2jodit\JoditWidget::className(), [
-        'settings' => [
-            'enableDragAndDropFileToEditor'=>new \yii\web\JsExpression("true"),
-        ],
-    ]);?>
-
-    <?php echo $form->field($model, 'pic')->widget(InputFile::className(), [
+    <?php echo $form->field($model, 'logo')->widget(InputFile::className(), [
         'language'      => 'ru',
         'controller'    => 'elfinder', // вставляем название контроллера, по умолчанию равен elfinder
         'filter'        => 'image',    // фильтр файлов, можно задать массив фильтров https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#wiki-onlyMimes
@@ -46,7 +38,7 @@ $this->registerJs($format, View::POS_HEAD);
         'multiple'      => false       // возможность выбора нескольких файлов
     ]);?>
 
-    <?= $form->field($model, 'date')->input('date') ?>
+    <?= $form->field($model, 'region_id')->dropDownList(Regions::find()->select(['name', 'id'])->where(['language_id' => 1])->column(), ['prompt' => 'Tanlash...']) ?>
 
     <?= $form->field($model, 'language_id')->widget(Select2::classname(), [
         'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
@@ -57,9 +49,7 @@ $this->registerJs($format, View::POS_HEAD);
                 'escapeMarkup' => $escape,
                 'allowClear' => true
         ],
-    ])->label(false); ?>
-
-    <?= $form->field($model, 'tags')->textInput(['maxlength' => true])->hint('Har bir kalit so\'zini vergul bilan qo\'ying, Masalan: futbol, koptok, ...') ?>
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

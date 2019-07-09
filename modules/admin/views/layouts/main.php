@@ -51,6 +51,7 @@ AdminAsset::register($this);
                                 ['label' => 'Tarjimalar', 'url' => ['/admin/message/index']],
                         ],
                     ],
+                    ['label' => 'Jamoalar', 'url' => ['/admin/teams/index']],
                     Yii::$app->user->identity->username == 'kurama' ? (
                         ['label' => 'User options', 'url' => ['/admin/default/superuser']]
                     ) : (['label' => 'User options', 'url' => ['/admin/default/user']]),
