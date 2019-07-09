@@ -5,10 +5,10 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\bootstrap\Modal;
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\TeamsSearch */
+/* @var $searchModel app\modules\admin\models\TeamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Jamoalar';
+$this->title = 'Qizilqum jamoasi';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -21,10 +21,10 @@ $this->params['breadcrumbs'][] = $this->title;
     }
 </style>
 
-<div class="teams-index">
+<div class="team-index">
 
     <p>
-        <?= Html::a('Jamoa tuzish', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Jamoani to\'ldirish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -42,9 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'logo:image',
-            'region_id',
-            'language_id',
+            'post',
+            'pic:image',
+            'lang_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
