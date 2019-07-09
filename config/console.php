@@ -17,12 +17,8 @@ $config = [
         'fixture' => [ // Fixture generation command line.
             'class' => 'yii\faker\FixtureController',
         ],
-        'dump' => [
-            'class' => 'hzhihua\dump\DumpController',
-            'db' => 'db',
-            'generateFilePath' => '@app/migrations',
-            'filePrefix' => '_qizilqum_',
-            'tableOptions' => 'ENGINE=InnoDB CHARACTER SET=utf8 COLLATE=utf8_general_ci',
+        'migration' => [
+            'class' => 'bizley\migration\controllers\MigrationController',
         ],
     ],
     'components' => [
