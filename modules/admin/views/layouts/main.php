@@ -53,6 +53,13 @@ AdminAsset::register($this);
                     ],
                     ['label' => 'Jamoalar', 'url' => ['/admin/teams/index']],
                     ['label' => 'Qizilqum jamoasi', 'url' => ['/admin/team/index']],
+                    [
+                        'label' => 'Galereyalar',
+                        'items' => [
+                            ['label' => 'Rasmlar', 'url' => ['/admin/image-gallery/index']],
+                            ['label' => 'Videolar', 'url' => ['/admin/video-gallery/index']],
+                        ],
+                    ],
                     Yii::$app->user->identity->username == 'kurama' ? (
                         ['label' => 'User options', 'url' => ['/admin/default/superuser']]
                     ) : (['label' => 'User options', 'url' => ['/admin/default/user']]),
