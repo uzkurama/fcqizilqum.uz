@@ -60,6 +60,7 @@ AdminAsset::register($this);
                             ['label' => 'Videolar', 'url' => ['/admin/video-gallery/index']],
                         ],
                     ],
+                    ['label' => 'SEO', 'url' => ['/admin/seo/view', 'id' => 1]],
                     Yii::$app->user->identity->username == 'kurama' ? (
                         ['label' => 'User options', 'url' => ['/admin/default/superuser']]
                     ) : (['label' => 'User options', 'url' => ['/admin/default/user']]),

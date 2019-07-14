@@ -2,7 +2,13 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+foreach ($seo as $s):
+    $this->site = Yii::t('app', $s->title);
+    $this->generator = '';
+    $this->title = Yii::t('app', $s->title);
+    $this->description = Yii::t('app', $s->description);
+    $this->image = Yii::t('app', $s->image);
+endforeach;
 ?>
 <div class="row">
 

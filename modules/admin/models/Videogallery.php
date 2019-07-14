@@ -32,8 +32,8 @@ class Videogallery extends \yii\db\ActiveRecord
             [['title', 'date', 'url', 'type'], 'required'],
             [['date'], 'safe'],
             [['type'], 'integer'],
-            [['title'], 'string', 'max' => 500],
-            [['url'], 'string', 'max' => 2000],
+            [['title'], 'string', 'max' => 2000],
+            [['url'], 'string', 'max' => 500],
         ];
     }
 
