@@ -18,6 +18,8 @@ Thumbs.db
 # config/db dir
 /config/db.php
 
+#
+/web/phpmyadmin/*
 # composer itself is not needed
 composer.phar
 
