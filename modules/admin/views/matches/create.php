@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Matches */
@@ -10,11 +12,9 @@ $this->params['breadcrumbs'][] = ['label' => 'Matches', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="matches-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+    <?php $form = ActiveForm::begin(['action' => ['matches/form']]); ?>
+    <?= $form->field($model, 'date', ['inputOptions' => ['onchange' => 'submit()']])->input('date')->label('Sanasi') ?>
+    <?php ActiveForm::end(); ?>
 </div>
+
+<?php var_dump(date('U'));?>

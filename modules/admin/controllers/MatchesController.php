@@ -4,6 +4,7 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use app\modules\admin\models\Matches;
+use app\modules\admin\models\MatchesOptions;
 use app\modules\admin\models\MatchesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -65,14 +66,46 @@ class MatchesController extends Controller
     public function actionCreate()
     {
         $model = new Matches();
-        if (Yii::$app->request->post()) { var_dump(Yii::$app->request->post()); die(); } 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $options = new MatchesOptions();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
+            $options->match_id = $model->id;
+            $options->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+    public function actionForm()
+    {
+        $model = new Matches();
+        $options = new MatchesOptions();
+        if ($model->load(Yii::$app->request->post())) {
+            $date = strtotime($model->date);
+            if($date < date('U')) {
+                return $this->render('_form_played', [
+                    'model' => $model,
+                    'options' => $options,
+                ]);
+            }
+            else if($date >= date('U')) {
+                return $this->render('_form_next', [
+                    'model' => $model,
+                ]);
+            }
+            else {
+                Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_ERROR, [
+                    [
+                        'title' => 'Xatolik yuz berdi',
+                        'confirmButtonText' => 'Ok!',
+                    ]
+                ]);
+                return $this->redirect('create');
+            }
+        }
     }
 
     /**

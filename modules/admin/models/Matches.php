@@ -30,7 +30,8 @@ class Matches extends \yii\db\ActiveRecord
     {
         return [
             [['guest_team', 'home_team', 'date', 'status'], 'required'],
-            [['guest_team', 'home_team', 'date', 'status', 'region_id' ], 'integer'],
+            [['guest_team', 'home_team', 'status', 'region_id' ], 'integer'],
+            [['date'], 'safe'],
             [['stadion'], 'string'],
         ];
     }
