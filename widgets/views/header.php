@@ -9,7 +9,7 @@ $current_lang_code = app\models\Country::find()->where(['language_code' => Yii::
 <style type="text/css">.caret{display:none;}</style>
 <header class=header-main>
     <div class="header-lower clearfix">
-        <div class=container>
+        <div class=container-fluid style="padding: 0.5em 2em;">
             <div class=row><h1 class=logo><a href="<?= Yii::$app->homeUrl;?>"><img src=<?= Yii::$app->request->baseUrl.'/images/logo.png';?> alt=image></a></h1>
 
                 <div class=menubar>
@@ -44,10 +44,15 @@ $current_lang_code = app\models\Country::find()->where(['language_code' => Yii::
                         </div>
                     </nav>
                 </div>
-                <div class=social><a href=https://www.facebook.com/templatespoint.net class=facebook><i
-                        class="fab fa-facebook"></i></a> <a href=https://twitter.com/itobuztech class=twitter><i
-                        class="fab fa-twitter"></i></a> <a href=https://www.behance.net/ class=behance><i
-                        class="fab fa-behance"></i></a></div>
+                <div class=social>
+                    <?php foreach ($contacts as $c):?>
+                        <a href="<?= $c->facebook;?>" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="<?= $c->twitter;?>" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="<?= $c->instagram;?>" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="<?= $c->youtube;?>" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="<?= $c->telegram;?>" class="telegram"><i class="fab fa-telegram"></i></a>
+                    <?php endforeach;?>
+                </div>
             </div>
         </div>
     </div>

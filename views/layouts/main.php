@@ -24,11 +24,10 @@ FontAwesomeAsset::register($this);
 
 <div class=wrapper>
     <?= \app\widgets\HeaderWidget::widget();?>
-    <section style="margin: 100px 0;">
-        <div class="container">
-            <?= $content;?>
-        </div>
-    </section>
+    <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0){
+        echo \app\widgets\NextMatchWidget::widget();
+    }?>
+
     <?= \app\widgets\FooterWidget::widget();?>
 </div>
 

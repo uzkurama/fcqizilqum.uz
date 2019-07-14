@@ -6497,10 +6497,19 @@ h6 {
     border-color: #41b5cb !important;
     background: #41b5cb;
     color: white; }
-  .behance:hover {
-    border-color: #41b5cb !important;
-    background: #41b5cb;
-    color: white; } }
+  .instagram:hover {
+    border-color: purple !important;
+    background: purple;
+    color: white; }
+  .youtube:hover {
+  border-color: red !important;
+  background: red;
+  color: white; } 
+  .telegram:hover {
+  border-color: blue !important;
+  background: blue;
+  color: white; } 
+}
 
 .information_section {
   padding: 70px 0 20px; }
@@ -7526,7 +7535,7 @@ h6 {
 
 /* -------------- latest result section -----------*/
 .latestResult {
-  padding: 100px 0;
+  padding-top: 150px;
   background: url("../images/background/latestnews.jpg") no-repeat;
   background-size: cover;
   background-position: center; }

@@ -13,6 +13,16 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+
+    public function getStatus($id, $param){
+        $values=\app\models\Option::find()->select($param)->where(['id' => $id])->all();
+
+        foreach ($values as $value){
+            $val = $value[$param];
+        }
+        return $val;
+    }
+
     public $layout = 'content';
     /**
      * {@inheritdoc}
