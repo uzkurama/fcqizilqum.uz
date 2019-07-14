@@ -2,20 +2,20 @@
 
 namespace app\widgets;
 
-
-use Yii;
-use yii\base\Exception;
 use yii\base\Widget;
-use yii\helpers\Html;
+use app\models\Language;
 use app\models\Contact;
+
 
 class HeaderWidget extends Widget
 {
     public function run()
     {
-    	$contact = Contact::find()->all();
+        $contacts = Contact::find()->all();
+        $all = Language::find()->where(['status' => '1'])->orderBy('position ASC')->all();
         return $this->render('header', [
-        	'contact' => $contact,
+            'all' => $all,
+            'contacts' => $contacts,
         ]);
     }
 }

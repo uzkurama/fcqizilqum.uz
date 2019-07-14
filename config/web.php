@@ -5,52 +5,67 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'language' => 'uz',
+    'sourceLanguage' => 'uz',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\Controller',
+            'access' => ['@'],
+            'disabledCommands' => ['netmount'],
+            'roots' => [
+                [
+                    'baseUrl'=>'@web',
+                    'basePath'=>'@webroot',
+                    'path' => '/uploads',
+                    'name' => 'Global'
+                ],
+            ],
+        ],
+    ],
     'components' => [
         'assetManager' => [
             'bundles' => [
-                'yii\web\JqueryAsset' => [
-                    'js'=>[]
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'js'=>[]
-                ],
-                
-                'yii\bootstrap\BootstrapAsset' => [
-                    'css' => [],
-                ],
                 'class' => 'yii\web\AssetManager',
                     'linkAssets' => true,
             ],
         ],
-        'request' => [
-            'baseUrl' => '',
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'herHdn7ctFZ65-jGohfuehp4fkyWbOmY',
-        ],
         'view' => [
             'class' => 'daxslab\taggedview\View',
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceLanguage' => 'uz',
+                ],
+            ],
+        ],
+        'request' => [
+            'baseUrl' => '',
+            'cookieValidationKey' => 'bykZPOsWZRB3GLrfqGf9bPR76qZp78n4',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+
+            // Comment this if you don't want to record user logins
+            'on afterLogin' => function($event) {
+                    \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
+                }
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [
@@ -63,20 +78,45 @@ $config = [
             ],
         ],
         'db' => $db,
-        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        
     ],
     'params' => $params,
 
     'modules' => [
-        'ux_admin' => [
-            'class' => 'app\modules\ux_admin\ux_admin',
+        'admin' => [
+            'class' => 'app\modules\admin\admin',
+        ],
+        'jodit' => [
+            'class' => 'yii2jodit\JoditModule',
+            'extensions'=>['jpg','png','gif'],
+            'root'=> '@webroot/uploads/',
+            'baseurl'=> '@web/uploads/',
+            'maxFileSize'=> '20mb',
+            'defaultPermission'=> 0775,
+        ],
+        'user-management' => [
+		    'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+            'enableRegistration' => true,
+            'on beforeAction'=>function(yii\base\ActionEvent $event) {
+				if ( $event->action->uniqueId == 'user-management/auth/login' )
+				{
+					$event->action->controller->layout = 'loginLayout.php';
+				};
+			},
+	    ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module',
+            'downloadAction'=>'gridview/export/download',
+            'i18n' =>  [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@kvgrid/messages',
+                'forceTranslation' => true
+            ],
         ],
     ],
 ];

@@ -13,6 +13,14 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
         '@tests' => '@app/tests',
     ],
+    'controllerMap' => [
+        'fixture' => [ // Fixture generation command line.
+            'class' => 'yii\faker\FixtureController',
+        ],
+        'migration' => [
+            'class' => 'bizley\migration\controllers\MigrationController',
+        ],
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -28,13 +36,12 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
+    'modules'=>[
+        'user-management' => [
+            'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+                'controllerNamespace'=>'vendor\webvimark\modules\UserManagement\controllers', // To prevent yii help from crashing
         ],
     ],
-    */
 ];
 
 if (YII_ENV_DEV) {

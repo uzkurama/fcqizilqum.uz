@@ -10,8 +10,20 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+
 class SiteController extends Controller
 {
+
+    public function getStatus($id, $param){
+        $values=\app\models\Option::find()->select($param)->where(['id' => $id])->all();
+
+        foreach ($values as $value){
+            $val = $value[$param];
+        }
+        return $val;
+    }
+
+    public $layout = 'content';
     /**
      * {@inheritdoc}
      */
@@ -54,6 +66,7 @@ class SiteController extends Controller
         ];
     }
 
+
     /**
      * Displays homepage.
      *
@@ -61,7 +74,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout = 'main';
+        $seo = \app\models\Seo::find()->where(['id' => 1])->all();
+        return $this->render('index', [
+            'seo' => $seo,
+        ]);
     }
 
     /**

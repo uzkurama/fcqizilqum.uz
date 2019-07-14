@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de3e435231f24424db072aa9ff219a5a",
+    "content-hash": "6a54932679c0b17c78496f93890ffcb4",
     "packages": [
         {
             "name": "2amigos/yii2-leaflet-extension",
@@ -116,6 +116,55 @@
             "time": "2017-01-06T16:38:10+00:00"
         },
         {
+            "name": "bizley/migration",
+            "version": "3.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bizley/yii2-migration.git",
+                "reference": "b891ab41e4efc269d4aacbf160eb1e0964d95443"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bizley/yii2-migration/zipball/b891ab41e4efc269d4aacbf160eb1e0964d95443",
+                "reference": "b891ab41e4efc269d4aacbf160eb1e0964d95443",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": ">=2.0.15.1 <2.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.3",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "bizley\\migration\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Pawel Bizley Brzozowski",
+                    "email": "pawel@positive.codes"
+                }
+            ],
+            "description": "Migration generator for Yii 2.",
+            "keywords": [
+                "console",
+                "generator",
+                "migrate",
+                "migration",
+                "yii2"
+            ],
+            "time": "2018-11-04T11:36:41+00:00"
+        },
+        {
             "name": "bower-asset/bootstrap",
             "version": "v3.4.1",
             "source": {
@@ -126,8 +175,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "shasum": null
+                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "require": {
                 "bower-asset/jquery": ">=1.9.1,<4.0"
@@ -148,8 +196,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/highcharts/highcharts-dist/zipball/06ffc9a3b8d5072deefd663898aab114f27f0287",
-                "reference": "06ffc9a3b8d5072deefd663898aab114f27f0287",
-                "shasum": null
+                "reference": "06ffc9a3b8d5072deefd663898aab114f27f0287"
             },
             "type": "bower-asset",
             "license": [
@@ -167,8 +214,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "shasum": null
+                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
@@ -189,8 +235,28 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
-                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
-                "shasum": null
+                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "1.12.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:components/jqueryui.git",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
             },
             "type": "bower-asset",
             "license": [
@@ -208,8 +274,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Leaflet/Leaflet/zipball/2e3e0ffbe87f246eb76d86d2633ddd59b262830b",
-                "reference": "2e3e0ffbe87f246eb76d86d2633ddd59b262830b",
-                "shasum": null
+                "reference": "2e3e0ffbe87f246eb76d86d2633ddd59b262830b"
             },
             "type": "bower-asset"
         },
@@ -224,8 +289,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/OwlFonk/OwlCarousel2/zipball/af851f9b567630d115930abd5480ffebccc72372",
-                "reference": "af851f9b567630d115930abd5480ffebccc72372",
-                "shasum": null
+                "reference": "af851f9b567630d115930abd5480ffebccc72372"
             },
             "require": {
                 "bower-asset/jquery": ">=1.8.3"
@@ -243,8 +307,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "shasum": null
+                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "type": "bower-asset"
         },
@@ -259,8 +322,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sweetalert2/sweetalert2/zipball/296862833b24e446c7bda35f040712840911cc7a",
-                "reference": "296862833b24e446c7bda35f040712840911cc7a",
-                "shasum": null
+                "reference": "296862833b24e446c7bda35f040712840911cc7a"
             },
             "type": "bower-asset",
             "license": [
@@ -278,8 +340,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/aef7b953107264f00234902a3880eb50dafc48be",
-                "reference": "aef7b953107264f00234902a3880eb50dafc48be",
-                "shasum": null
+                "reference": "aef7b953107264f00234902a3880eb50dafc48be"
             },
             "require": {
                 "bower-asset/jquery": ">=1.8"
@@ -670,17 +731,65 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
-            "name": "imagine/imagine",
-            "version": "1.2.1",
+            "name": "ikimea/browser",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "69ce33008b73a64f5ea25449d1b69146437144fd"
+                "url": "https://github.com/Ikimea/Browser.git",
+                "reference": "3fb8a2498ed36d49832d95f1da0c4cc055a64728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/69ce33008b73a64f5ea25449d1b69146437144fd",
-                "reference": "69ce33008b73a64f5ea25449d1b69146437144fd",
+                "url": "https://api.github.com/repos/Ikimea/Browser/zipball/3fb8a2498ed36d49832d95f1da0c4cc055a64728",
+                "reference": "3fb8a2498ed36d49832d95f1da0c4cc055a64728",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ikimea\\Browser\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ikimea",
+                    "homepage": "http://www.ikimea.com"
+                },
+                {
+                    "name": "Gary White",
+                    "homepage": "http://www.apptools.com/phptools/browser/"
+                },
+                {
+                    "name": "Chris Schuld",
+                    "homepage": "http://chrisschuld.com"
+                }
+            ],
+            "description": "Detecting the user’s browser",
+            "homepage": "http://www.ikimea.com",
+            "keywords": [
+                "browser"
+            ],
+            "time": "2015-08-26T20:05:14+00:00"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "eec39b2092bc8008a92b8d63824476413dbe7511"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/eec39b2092bc8008a92b8d63824476413dbe7511",
+                "reference": "eec39b2092bc8008a92b8d63824476413dbe7511",
                 "shasum": ""
             },
             "require": {
@@ -725,20 +834,20 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2019-06-03T15:06:06+00:00"
+            "time": "2019-07-09T06:55:48+00:00"
         },
         {
             "name": "jodit/application",
-            "version": "2.0.21",
+            "version": "2.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xdan/jodit-connector-application.git",
-                "reference": "e3f780c31992ddd12b67f48b132d4e62d7be66cf"
+                "reference": "f9e98a6151e69932c06a7501d745af287a66af6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xdan/jodit-connector-application/zipball/e3f780c31992ddd12b67f48b132d4e62d7be66cf",
-                "reference": "e3f780c31992ddd12b67f48b132d4e62d7be66cf",
+                "url": "https://api.github.com/repos/xdan/jodit-connector-application/zipball/f9e98a6151e69932c06a7501d745af287a66af6d",
+                "reference": "f9e98a6151e69932c06a7501d745af287a66af6d",
                 "shasum": ""
             },
             "require": {
@@ -768,7 +877,7 @@
                 }
             ],
             "description": "Jodit FileBrowser and Uploader connector",
-            "time": "2019-03-02T22:41:53+00:00"
+            "time": "2019-07-03T20:00:35+00:00"
         },
         {
             "name": "jodit/yii2-jodit",
@@ -2598,6 +2707,58 @@
             "time": "2017-09-15T11:16:39+00:00"
         },
         {
+            "name": "mihaildev/yii2-elfinder",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MihailDev/yii2-elfinder.git",
+                "reference": "3cc3001a84e3cc3841131a0a947d7917948a60b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MihailDev/yii2-elfinder/zipball/3cc3001a84e3cc3841131a0a947d7917948a60b1",
+                "reference": "3cc3001a84e3cc3841131a0a947d7917948a60b1",
+                "shasum": ""
+            },
+            "require": {
+                "studio-42/elfinder": "^2.1.10",
+                "yiisoft/yii2": "~2.0.13",
+                "yiisoft/yii2-jui": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mihaildev\\elfinder\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mihail",
+                    "email": "mihail.kucher@gmail.com",
+                    "homepage": "https://github.com/MihailDev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Yii2 ElFinder",
+            "homepage": "https://github.com/MihailDev/yii2-elfinder",
+            "keywords": [
+                "elfinder",
+                "filemanager",
+                "yii"
+            ],
+            "time": "2018-10-01T17:00:54+00:00"
+        },
+        {
             "name": "miloschuman/yii2-highcharts-widget",
             "version": "v7.0",
             "source": {
@@ -2657,10 +2818,67 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/ba907eaec40fab01d410c3023a5572b2cb46cea6",
-                "reference": "ba907eaec40fab01d410c3023a5572b2cb46cea6",
-                "shasum": null
+                "reference": "ba907eaec40fab01d410c3023a5572b2cb46cea6"
             },
             "type": "npm-asset"
+        },
+        {
+            "name": "studio-42/elfinder",
+            "version": "2.1.49",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Studio-42/elFinder.git",
+                "reference": "8669ee276693177e2c288d852923f4a0371d1b96"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/8669ee276693177e2c288d852923f4a0371d1b96",
+                "reference": "8669ee276693177e2c288d852923f4a0371d1b96",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "suggest": {
+                "barryvdh/elfinder-flysystem-driver": "VolumeDriver for elFinder to use Flysystem as a root.",
+                "google/apiclient": "VolumeDriver GoogleDrive require `google/apiclient:^2.0.",
+                "kunalvarma05/dropbox-php-sdk": "VolumeDriver `Dropbox`2 require `kunalvarma05/dropbox-php-sdk.",
+                "nao-pon/flysystem-google-drive": "require in GoogleDrive network volume mounting with Flysystem."
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitry Levashov",
+                    "email": "dio@std42.ru",
+                    "homepage": "http://std42.ru"
+                },
+                {
+                    "name": "Troex Nevelin",
+                    "email": "troex@fury.scancode.ru",
+                    "homepage": "http://std42.ru"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/Studio-42/elFinder/contributors"
+                },
+                {
+                    "name": "Naoki Sawada",
+                    "email": "hypweb+elfinder@gmail.com",
+                    "homepage": "http://xoops.hypweb.net"
+                }
+            ],
+            "description": "File manager for web",
+            "homepage": "http://elfinder.org",
+            "time": "2019-04-16T15:16:44+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2960,17 +3178,271 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "xdan/jodit",
-            "version": "3.2.45",
+            "name": "unclead/yii2-multiple-input",
+            "version": "2.21.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/xdan/jodit.git",
-                "reference": "d06c9f81efa76715467a6edd92216e31f0c89b53"
+                "url": "https://github.com/unclead/yii2-multiple-input.git",
+                "reference": "cad3cc288b8736ed6e9b161222628b1612ebbf69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xdan/jodit/zipball/d06c9f81efa76715467a6edd92216e31f0c89b53",
-                "reference": "d06c9f81efa76715467a6edd92216e31f0c89b53",
+                "url": "https://api.github.com/repos/unclead/yii2-multiple-input/zipball/cad3cc288b8736ed6e9b161222628b1612ebbf69",
+                "reference": "cad3cc288b8736ed6e9b161222628b1612ebbf69",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.13"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "unclead\\multipleinput\\examples\\": "examples/",
+                    "unclead\\multipleinput\\": "src/",
+                    "unclead\\multipleinput\\tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Tupikov",
+                    "email": "unclead.nsk@gmail.com"
+                }
+            ],
+            "description": "Widget for handle multiple inputs for an attribute of Yii2 framework model",
+            "keywords": [
+                "yii2",
+                "yii2 array input",
+                "yii2 multiple field",
+                "yii2 multiple input",
+                "yii2 tabular input"
+            ],
+            "time": "2019-06-17T09:43:34+00:00"
+        },
+        {
+            "name": "webvimark/bootstrap-switch",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/bootstrap-switch.git",
+                "reference": "c7493ba37747a83951cd95acf876668cbc0aba7f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/bootstrap-switch/zipball/c7493ba37747a83951cd95acf876668cbc0aba7f",
+                "reference": "c7493ba37747a83951cd95acf876668cbc0aba7f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\extensions\\BootstrapSwitch\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "BootstrapSwitch extension for yii 2",
+            "time": "2014-06-23T10:35:32+00:00"
+        },
+        {
+            "name": "webvimark/components",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/components.git",
+                "reference": "805b7ecfaea1654a8c0f47bc007497c97bdc9613"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/components/zipball/805b7ecfaea1654a8c0f47bc007497c97bdc9613",
+                "reference": "805b7ecfaea1654a8c0f47bc007497c97bdc9613",
+                "shasum": ""
+            },
+            "require": {
+                "webvimark/helpers": "^1.0.0",
+                "webvimark/image": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\components\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Components for yii 2",
+            "time": "2016-06-28T09:29:18+00:00"
+        },
+        {
+            "name": "webvimark/date-range-picker",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/date-range-picker.git",
+                "reference": "195826787e1e516cb101a5a5720ffa42f3255210"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/date-range-picker/zipball/195826787e1e516cb101a5a5720ffa42f3255210",
+                "reference": "195826787e1e516cb101a5a5720ffa42f3255210",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\extensions\\DateRangePicker\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "dangrossman daterangepicker yii 2 gridview",
+            "time": "2017-02-27T19:12:56+00:00"
+        },
+        {
+            "name": "webvimark/grid-bulk-actions",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/grid-bulk-actions.git",
+                "reference": "c15cc98cc926a4ec0537a08d12ed25208c024440"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/grid-bulk-actions/zipball/c15cc98cc926a4ec0537a08d12ed25208c024440",
+                "reference": "c15cc98cc926a4ec0537a08d12ed25208c024440",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\extensions\\GridBulkActions\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Bulk actions extension for yii 2 gridview",
+            "time": "2016-10-25T06:25:33+00:00"
+        },
+        {
+            "name": "webvimark/grid-page-size",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/grid-page-size.git",
+                "reference": "cb0163614e34ebb0319ef436da6db755f30546d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/grid-page-size/zipball/cb0163614e34ebb0319ef436da6db755f30546d2",
+                "reference": "cb0163614e34ebb0319ef436da6db755f30546d2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\extensions\\GridPageSize\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Grid page size extension for yii 2 gridview",
+            "time": "2016-10-25T06:28:39+00:00"
+        },
+        {
+            "name": "webvimark/helpers",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/helpers.git",
+                "reference": "7bb59438d50149cec8233f3b509dd686200ea567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/helpers/zipball/7bb59438d50149cec8233f3b509dd686200ea567",
+                "reference": "7bb59438d50149cec8233f3b509dd686200ea567",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\helpers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Helpers for yii 2",
+            "time": "2016-10-03T08:50:29+00:00"
+        },
+        {
+            "name": "webvimark/image",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/image.git",
+                "reference": "18a3f257b55d0670086b4ccdac005fe376ad7c21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/image/zipball/18a3f257b55d0670086b4ccdac005fe376ad7c21",
+                "reference": "18a3f257b55d0670086b4ccdac005fe376ad7c21",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\image\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Kohana image lib wrapper for yii 2",
+            "time": "2014-07-02T07:33:43+00:00"
+        },
+        {
+            "name": "webvimark/module-user-management",
+            "version": "1.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webvimark/user-management.git",
+                "reference": "48adb6cc53fc0a7da34dbf31bba47a0ef8d35cd8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webvimark/user-management/zipball/48adb6cc53fc0a7da34dbf31bba47a0ef8d35cd8",
+                "reference": "48adb6cc53fc0a7da34dbf31bba47a0ef8d35cd8",
+                "shasum": ""
+            },
+            "require": {
+                "ikimea/browser": "1.12.0",
+                "webvimark/bootstrap-switch": "^1.0.0",
+                "webvimark/components": "^1.0.0",
+                "webvimark/date-range-picker": "^1.0.0",
+                "webvimark/grid-bulk-actions": "^1.0.0",
+                "webvimark/grid-page-size": "^1.0.0",
+                "webvimark/helpers": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "webvimark\\modules\\UserManagement\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "User with improved RBAC",
+            "time": "2016-10-14T10:53:00+00:00"
+        },
+        {
+            "name": "xdan/jodit",
+            "version": "3.2.46",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xdan/jodit.git",
+                "reference": "d5dba941990f1b3f9b08c195b2504e5a8f5b0bb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xdan/jodit/zipball/d5dba941990f1b3f9b08c195b2504e5a8f5b0bb0",
+                "reference": "d5dba941990f1b3f9b08c195b2504e5a8f5b0bb0",
                 "shasum": ""
             },
             "type": "library",
@@ -2985,7 +3457,7 @@
                 }
             ],
             "description": "Awesome WYSIWYG editor and FileBrowser",
-            "time": "2019-06-17T17:13:31+00:00"
+            "time": "2019-07-03T21:30:27+00:00"
         },
         {
             "name": "yiimaker/yii2-social-share",
@@ -3044,16 +3516,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.21",
+            "version": "2.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7e4622252c5f272373e1339a47d331e4a55e9591"
+                "reference": "417299927ed14adcd51c69a9d75311c5fc33d227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7e4622252c5f272373e1339a47d331e4a55e9591",
-                "reference": "7e4622252c5f272373e1339a47d331e4a55e9591",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/417299927ed14adcd51c69a9d75311c5fc33d227",
+                "reference": "417299927ed14adcd51c69a9d75311c5fc33d227",
                 "shasum": ""
             },
             "require": {
@@ -3140,7 +3612,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-06-18T14:25:08+00:00"
+            "time": "2019-07-02T20:28:40+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -3309,6 +3781,52 @@
                 "yii2"
             ],
             "time": "2019-06-04T12:38:50+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-jui",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-jui.git",
+                "reference": "ce45c16d4fbbe7d1c516d8d0e8311e07f6138eed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/ce45c16d4fbbe7d1c516d8d0e8311e07f6138eed",
+                "reference": "ce45c16d4fbbe7d1c516d8d0e8311e07f6138eed",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-ui": "~1.12.1",
+                "yiisoft/yii2": "~2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\jui\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com"
+                }
+            ],
+            "description": "The Jquery UI extension for the Yii framework",
+            "keywords": [
+                "jQuery UI",
+                "yii2"
+            ],
+            "time": "2017-11-25T15:32:29+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -3730,16 +4248,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "dc784032a3f6f4e7a4b882e272b771f6fe4c37cf"
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dc784032a3f6f4e7a4b882e272b771f6fe4c37cf",
-                "reference": "dc784032a3f6f4e7a4b882e272b771f6fe4c37cf",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
                 "shasum": ""
             },
             "require": {
@@ -3797,7 +4315,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-06-30T00:37:05+00:00"
+            "time": "2019-07-01T23:21:34+00:00"
         },
         {
             "name": "myclabs/deep-copy",
