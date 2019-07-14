@@ -13,6 +13,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $layout = 'content';
     /**
      * {@inheritdoc}
      */
@@ -63,6 +64,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'main';
         $seo = \app\models\Seo::find()->where(['id' => 1])->all();
         return $this->render('index', [
             'seo' => $seo,
