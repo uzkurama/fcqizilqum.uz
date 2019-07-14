@@ -63,6 +63,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $seo = \app\models\Seo::find()->where(['id' => 1])->all();
+        return $this->render('index', [
+            'seo' => $seo,
+        ]);
     }
 
     /**
