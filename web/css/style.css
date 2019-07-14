@@ -6535,7 +6535,9 @@ h6 {
   width: 16.6666666667%;
   min-height: 1px;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  margin-top: 0.5em;
+  }
   .header-main .logo a {
     display: block;
     position: absolute;
@@ -7611,7 +7613,9 @@ h6 {
       @media (min-width: 1200px) {
         .latestResult .result-count {
           float: left;
-          width: 16.6666666667%; } }
+          margin-top: 10%;
+          width: 16.6666666667%;
+          } }
     .latestResult .result .figure {
       position: relative;
       min-height: 1px;
@@ -7639,13 +7643,14 @@ h6 {
       .latestResult .result .figure:after {
         position: absolute;
         content: '';
-        height: 340px;
+        height: 100px;
         width: 100%;
         z-index: -1;
         left: 60%;
-        top: 50px;
+        top: 100px;
         transition: all 0.9s ease;
-        background: url("../images/result/resultBoard.png") top right no-repeat; }
+        background: url("../images/result/resultBoard.png") top right no-repeat;
+        }
     .latestResult .result .content {
       position: relative;
       min-height: 1px;
@@ -7656,7 +7661,8 @@ h6 {
       padding-left: 15px;
       padding-right: 15px;
       transition: all 0.8s ease-in-out;
-      margin-top: 80px; }
+      margin-top: 130px;
+      }
       @media (min-width: 992px) {
         .latestResult .result .content {
           float: left;
