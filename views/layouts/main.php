@@ -27,7 +27,7 @@ FontAwesomeAsset::register($this);
     <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0){
         echo \app\widgets\NextMatchWidget::widget();
     }?>
-
+    <?= \app\widgets\AboutWidget::widget();?>
     <?= \app\widgets\FooterWidget::widget();?>
 </div>
 
