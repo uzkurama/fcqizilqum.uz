@@ -1,110 +1,92 @@
-<footer class=footer-type01>
+<?php
+
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+?>
+
+<footer class="footer-type01">
     <div class=container>
         <div class=row>
             <ul class=footer-widget>
-                <li class=widget-about><h4 class=footerheading>about <span>soccer club</span></h4>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis vitae, velit perferendis
-                        dolor atque magni, porro minus repellendus nostrum alias ea deserunt. Vel quam explicabo
-                        laudantium accusamus est, nulla minima!</p>
-
-                    <p><span class=uppercaseheading>address:</span><span class=red>239</span> main street
-                        London,England.</p>
-
-                    <p><span class=uppercaseheading>call:</span> <span class=red>1800-2222-3333</span></p></li>
-                <li class=widget-news><h4 class=footerheading>recent <span>news</span></h4>
-                    <ul class="widget-newsdetails clearfix">
-                        <li class=clearfix><a href="#" class=clearfix>
-                            <div class=widget-pic
-                                 style="background:url(<?= Yii::$app->request->baseUrl.'/images/widget/widget01.jpg';?>') center no-repeat"></div>
-                            <div class=widget-newsinfo><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Numquam soluta excepturi.</p>
-
-                                <p class=uppercaseheading>18 september ,<span class=red>2015</span></p></div>
-                        </a></li>
-                        <li class=clearfix><a href="#" class=clearfix>
-                            <div class=widget-pic
-                                 style="background:url(<?= Yii::$app->request->baseUrl.'/images/widget/widget02.jpg';?>) center no-repeat"></div>
-                            <div class=widget-newsinfo><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Numquam soluta excepturi.</p>
-
-                                <p class=uppercaseheading>18 september ,<span class=red>2015</span></p></div>
-                        </a></li>
-                        <li class=clearfix><a href="#" class=clearfix>
-                            <div class=widget-pic
-                                 style="background:url(<?= Yii::$app->request->baseUrl.'/images/widget/widget03.jpg';?>) center no-repeat"></div>
-                            <div class=widget-newsinfo><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Numquam soluta excepturi.</p>
-
-                                <p class=uppercaseheading>18 september ,<span class=red>2015</span></p></div>
-                        </a></li>
+                <li class=widget-about>
+                    <a href="<?= Yii::$app->homeUrl;?>" style="text-align: center;">
+                        <?= Html::img(Yii::$app->request->baseUrl.'/images/logo.png', ['class' => 'img-responsive fc-logo']);?>
+                        <h4><?= Yii::t('app', '"Qizilqum" FK');?></h4>
+                    </a>
+                </li>
+                <li class="contacts-footer">
+                    <h4><?= Yii::t('app', 'Kontaktlar');?></h4>
+                    <?php foreach ($contacts as $c):?>
+                    <p>
+                        <a href="tel:<?= $c->tel;?>">
+                            <i class="fas fa-phone-square"></i>
+                            <?= $c->tel;?>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="email:<?= $c->email;?>">
+                            <i class="fas fa-envelope"></i>
+                            <?= $c->email;?>
+                        </a>
+                    </p>
+                    <p>
+                        <a target="_blank" href="https://www.google.com/maps/@<?= $c->lat;?>,<?= $c->lng;?>,16z?hl=ru">
+                            <i class="fas fa-location-arrow"></i>
+                            <?php foreach ($c->adress as $adr) {
+                                $current_lang = app\models\Language::find()->where(['id' => $adr[adress_language]])->select('iso_name')->one();
+                                if($current_lang->iso_name == Yii::$app->language){
+                                    echo $adr[adress_text];
+                                }
+                            } ?>
+                        </a>
+                    </p>
+                    <?php endforeach;?>
+                </li>
+                <li class="widget-footer">
+                    <h4 class="text-center" style="margin-bottom: 10px"><?= Yii::t('app', 'Biz ijtimoiy tarmoqlarda');?></h4>
+                    <ul class="list-inline clearfix">
+                        <?php foreach ($contacts as $c):?>
+                        <li>
+                            <a href="<?= $c->facebook;?>" class=bigsocial-link>
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= $c->twitter;?>" class=bigsocial-link>
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= $c->instagram;?>" class=bigsocial-link>
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= $c->telegram;?>" class=bigsocial-link>
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= $c->youtube;?>" class=bigsocial-link>
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= $c->mover;?>" class=bigsocial-link>
+                                <i class="fas fa-play"></i>
+                            </a>
+                        </li>
+                        <?php endforeach;?>
                     </ul>
                 </li>
-                <li class=widget-product><h4 class=footerheading>real <span>soccer products</span></h4>
-                    <ul class=widget_productdetails>
-                        <li><a href=#>shoes(4)</a></li>
-                        <li><a href=#>men(4)</a></li>
-                        <li><a href=#>t-shirt(4)</a></li>
-                        <li><a href=#>sports(4)</a></li>
-                        <li><a href="#">glass</a></li>
-                    </ul>
-                </li>
-                <li class=widget-comment><h4 class=footerheading>recent <span>comments</span></h4>
-                    <ul class=widget_commentDetails>
-                        <li><a href=# class=clearfix>
-                            <div class=comment-pic>
-                                <div class=columnpic><img src=<?= Yii::$app->request->baseUrl.'/images/widget/comment01.jpg';?> alt=image></div>
-                            </div>
-                            <div class=commentinfo><p class=uppercaseheading>jhon doe</p>
-
-                                <p>18 April ,<span class=red>2015</span></p>
-
-                                <p>nice and cool</p></div>
-                        </a></li>
-                        <li><a href=# class=clearfix>
-                            <div class=comment-pic>
-                                <div class=columnpic><img src=<?= Yii::$app->request->baseUrl.'/images/widget/comment02.jpg';?> alt=image></div>
-                            </div>
-                            <div class=commentinfo><p class=uppercaseheading>jhon doe</p>
-
-                                <p>18 April ,<span class=red>2015</span></p>
-
-                                <p>nice and cool</p></div>
-                        </a></li>
-                        <li><a href=# class=clearfix>
-                            <div class=comment-pic>
-                                <div class=columnpic><img src=<?= Yii::$app->request->baseUrl.'/images/widget/comment03.jpg';?> alt=image></div>
-                            </div>
-                            <div class=commentinfo><p class=uppercaseheading>jhon doe</p>
-
-                                <p>18 April ,<span class=red>2015</span></p>
-
-                                <p>nice and cool</p></div>
-                        </a></li>
-                    </ul>
+                <li class="credits-footer">
+                    <p><?= '© '.Yii::t('app', '"Qizilqum" FK').' '.date('Y');?></p>
+                    <p><?= Yii::t('app', 'Barcha huquqlar himoyalangan.');?></p>
+                    <p class="text-justify"><?= Yii::t('app', 'Saytdan olingan ma\'lumotlarni chop etganda mazkur saytga havola qilish majburiy');?></p>
+                    <p><?= \yii\helpers\Html::a(Yii::t('app', 'Tizimlarini rivojlantirish').':'.' Open Code LLC', 'https://opencode.uz', ['style' => 'font-size: 14px;']);?></p>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class=footer-type02>
-        <div class=container>
-            <div class=row><a href=index-2.html class=footer-logo><img src=<?= Yii::$app->request->baseUrl.'/images/logo.png';?> alt=image></a>
-
-                <div class=footer-container>
-                    <ul class=clearfix>
-                        <li><a href=https://www.facebook.com/templatespoint.net class=bigsocial-link><i
-                                class="fab fa-facebook"></i></a></li>
-                        <li><a href=https://twitter.com/ class=bigsocial-link target=_blank><i
-                                class="fab fa-twitter"></i></a></li>
-                        <li><a href=https://www.behance.net/ class=bigsocial-link target=_blank><i
-                                class="fab fa-behance"></i></a></li>
-                    </ul>
-                    <p><a target="_blank" href="https://www.templatespoint.net/">Templates Point</a></p></div>
-                <div class=footer-appstore>
-                    <figure><a href=#><img src=<?= Yii::$app->request->baseUrl.'/images/appstore/apple.png';?> alt=image></a></figure>
-                    <figure><a href=#><img src=<?= Yii::$app->request->baseUrl.'/images/appstore/google.png';?> alt=image></a></figure>
-                </div>
-            </div>
         </div>
     </div>
 </footer>
