@@ -34,8 +34,8 @@ class MatchesOptions extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['guest_goals', 'home_goals', 'guest_warnings', 'home_warnings', 'guest_kicks', 'home_kicks', 'guest_transfers', 'home_transfers'], 'safe'],
-            [['extra_time', 'match_id'], 'integer'],
+            [['guest_goals', 'home_goals', 'guest_warnings', 'home_warnings', 'guest_transfers', 'home_transfers'], 'safe'],
+            [['match_id'], 'integer'],
         ];
     }
 
@@ -51,11 +51,8 @@ class MatchesOptions extends \yii\db\ActiveRecord
             'home_goals' => 'Home Goals',
             'guest_warnings' => 'Guest Warnings',
             'home_warnings' => 'Home Warnings',
-            'guest_kicks' => 'Guest Kicks',
-            'home_kicks' => 'Home Kicks',
             'guest_transfers' => 'Guest Transfers',
             'home_transfers' => 'Home Transfers',
-            'extra_time' => 'Extra Time',
         ];
     }
 }

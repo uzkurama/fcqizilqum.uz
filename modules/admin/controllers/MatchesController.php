@@ -118,13 +118,24 @@ class MatchesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $options = MatchesOptions::findOne(['match_id' => $id]);
+        if ($model->load(Yii::$app->request->post()) && $options->load(Yii::$app->request->post())) {
+            $options->match_id = $model->id;
+            $model->status = 0;
+            $model->save();
+            $options->save();
+            Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_SUCCESS, [
+                [
+                    'title' => 'Saqlandi',
+                    'confirmButtonText' => 'Ok!',
+                ]
+            ]);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
+        return $this->render('_form_played', [
             'model' => $model,
+            'options' => $options,
         ]);
     }
 
@@ -138,6 +149,7 @@ class MatchesController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        MatchesOptions::findOne(['match_id' => $id])->delete();
 
         return $this->redirect(['index']);
     }
