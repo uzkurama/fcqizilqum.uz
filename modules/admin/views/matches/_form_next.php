@@ -12,7 +12,12 @@ $regions = \app\modules\admin\models\Regions::find()->select(['name', 'id'])->in
 
     <?php $form = ActiveForm::begin(['action' => ['matches/create']]); ?>
 
-    <?= $form->field($model, 'date')->input('date')->label('Sanasi') ?>
+    <?= $form->field($model, 'date')->widget(DateControl::classname(), [
+        'type'=>DateControl::FORMAT_DATE,
+        'displayFormat' => 'php:d/m/Y',
+        'saveFormat' => 'php:d/m/Y',
+        'language' => 'ru',
+    ]); ?>
 
     <?= $form->field($model, 'home_team')->dropDownList($teams, ['prompt' => 'Tanlash']) ?>
 
