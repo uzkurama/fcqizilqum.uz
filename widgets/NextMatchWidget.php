@@ -10,7 +10,7 @@ class NextMatchWidget extends Widget
 {
     public function run()
     {
-        $matches = Matches::find()->where(['status' => 1])->andWhere(['>','date', date('U')])->limit(1)->all();
+        $matches = Matches::find()->where(['status' => 1])->andWhere(['<','date', date('U')])->limit(1)->all();
         return $this->render('next-match', [
             'matches' => $matches,
         ]);

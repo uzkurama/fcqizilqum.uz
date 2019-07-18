@@ -15,6 +15,7 @@ $teams = \app\modules\admin\models\Teams::find()->select(['name', 'id'])->indexB
     <?php $form = ActiveForm::begin(); ?>
     <?php echo $form->field($model, 'date')->widget('trntv\yii\datetime\DateTimeWidget',
         [
+            'phpDatetimeFormat' => 'dd.MM.yyyy, HH:mm:ss',
             'clientOptions' => [
                 'allowInputToggle' => false,
                 'sideBySide' => true,

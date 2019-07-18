@@ -68,6 +68,7 @@ class MatchesController extends Controller
         $model = new Matches();
         $options = new MatchesOptions();
         if ($model->load(Yii::$app->request->post())) {
+            $model->date = strtotime($model->date);
             $model->save();
             $options->match_id = $model->id;
             $options->save();
@@ -121,7 +122,7 @@ class MatchesController extends Controller
         $options = MatchesOptions::findOne(['match_id' => $id]);
         if ($model->load(Yii::$app->request->post()) && $options->load(Yii::$app->request->post())) {
             $options->match_id = $model->id;
-            $model->status = 0;
+            $model->date = strtotime($model->date);
             $model->save();
             $options->save();
             Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_SUCCESS, [
