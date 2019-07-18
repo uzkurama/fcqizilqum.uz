@@ -40,7 +40,7 @@
         "unclead/yii2-multiple-input": "~2.0",
         "bizley/migration": "~3.0.0",
         "webvimark/module-user-management": "^1",
-        "kartik-v/yii2-datecontrol": "*"
+        "trntv/yii2-datetime-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

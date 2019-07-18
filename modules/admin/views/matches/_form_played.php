@@ -13,7 +13,14 @@ $teams = \app\modules\admin\models\Teams::find()->select(['name', 'id'])->indexB
 
 
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($model, 'date')->input('date')->label('Sanasi') ?>
+    <?php echo $form->field($model, 'date')->widget('trntv\yii\datetime\DateTimeWidget',
+        [
+            'clientOptions' => [
+                'allowInputToggle' => false,
+                'sideBySide' => true,
+            ],
+        ]
+    )->label('Sanasi'); ?>
     <table class="table table-bordered">
         <thead>
             <tr>

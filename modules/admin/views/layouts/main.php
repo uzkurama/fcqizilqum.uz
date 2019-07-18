@@ -10,9 +10,12 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AdminAsset;
+use app\assets\DateTimeAsset;
+
 
 
 AdminAsset::register($this);
+DateTimeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

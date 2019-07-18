@@ -1,4 +1,5 @@
 <?php
+use \kartik\datecontrol\Module;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
@@ -33,6 +34,7 @@ $config = [
             'bundles' => [
                 'class' => 'yii\web\AssetManager',
                     'linkAssets' => true,
+                    'forceCopy' => true,
             ],
         ],
         'view' => [

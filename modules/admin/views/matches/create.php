@@ -1,7 +1,7 @@
 <?php
 
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartik\datecontrol\DateControl;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Matches */
@@ -12,11 +12,18 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="matches-create">
     <?php $form = ActiveForm::begin(['action' => ['matches/form']]); ?>
-    <?= $form->field($model, 'date')->widget(DateControl::classname(), [
-        'type'=>DateControl::FORMAT_DATE,
-        'displayFormat' => 'php:d/m/Y',
-        'saveFormat' => 'php:d/m/Y',
-        'language' => 'ru',
-    ])->label('Sanasi'); ?> ?>
+    <?php echo $form->field($model, 'date')->widget('trntv\yii\datetime\DateTimeWidget',
+        [
+            'clientOptions' => [
+                'allowInputToggle' => false,
+                'sideBySide' => true,
+            ],
+        ]
+    )->label('Sanasi'); ?>
+    <div class="form-group">
+        <?= Html::submitButton('Tanlash', ['class' => 'btn btn-success']) ?>
+    </div>
     <?php ActiveForm::end(); ?>
 </div>
+
+
