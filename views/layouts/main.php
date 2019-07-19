@@ -26,7 +26,11 @@ FontAwesomeAsset::register($this);
     <?= \app\widgets\HeaderWidget::widget();?>
     <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0){
         echo \app\widgets\NextMatchWidget::widget();
-    }?>
+    }
+    else if(\app\controllers\SiteController::getStatus(15, 'value') == 1) {
+        echo \app\widgets\MainSliderWidget::widget();
+    }
+    ?>
     <?= \app\widgets\AboutWidget::widget();?>
     <?= \app\widgets\FooterWidget::widget();?>
 </div>

@@ -6271,14 +6271,16 @@ h6 {
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     font-size: 20px; }
-  .bigsocial-link:after {
+/*   .bigsocial-link:after {
     position: absolute;
+    vertical-align: middle;
     width: 100%;
     height: 100%;
     border-radius: 50%;
     content: '';
     border: 2px dashed #fff;
-    z-index: -1; }
+    z-index: -1;
+    } */
 
 @-webkit-keyframes moveRound {
   from {

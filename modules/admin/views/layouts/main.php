@@ -56,6 +56,8 @@ DateTimeAsset::register($this);
                     ],
                     ['label' => 'Jamoalar', 'url' => ['/admin/teams/index']],
                     ['label' => 'Qizilqum jamoasi', 'url' => ['/admin/team/index']],
+                    ['label' => 'O\'yinlar', 'url' => ['/admin/matches/index']],
+                    ['label' => 'Slayder', 'url' => ['/admin/main-slider/index']],
                     [
                         'label' => 'Galereyalar',
                         'items' => [
