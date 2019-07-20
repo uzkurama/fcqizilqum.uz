@@ -46,7 +46,18 @@ $this->registerJs($format, View::POS_HEAD);
         'multiple'      => false       // возможность выбора нескольких файлов
     ]);?>
 
-    <?= $form->field($model, 'date')->input('date') ?>
+    <?php echo $form->field($model, 'date')->widget('trntv\yii\datetime\DateTimeWidget',
+        [
+            'phpDatetimeFormat' => 'dd.MM.yyyy, 12:00:00',
+            'momentDatetimeFormat' => 'DD.MM.YYYY',
+            'clientOptions' => [
+                'allowInputToggle' => false,
+                'sideBySide' => true,
+            ],
+        ]
+    )->label('Sanasi'); ?>
+
+    <?= $form->field($model, 'type')->dropDownList([0 => 'Klub yangiliklari', 1 => 'Boshqarma yangiliklari'])->label('Turi') ?>
 
     <?= $form->field($model, 'language_id')->widget(Select2::classname(), [
         'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),

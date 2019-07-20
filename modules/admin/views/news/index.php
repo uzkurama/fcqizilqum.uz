@@ -20,6 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
     td img {
        width: 250px;
     }
+    .flag {
+       width: 40px;
+    }
     .modal-backdrop {
         display: none;
     }
@@ -44,8 +47,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'pic:image',
-            'date',
-            //'language_id',
+            'date:date',
+            [
+                'label' => 'Tili',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$model->lang->iso_name.'.gif', ['class' => 'flag']).' '.$model->lang->name;
+                }
+            ],
+            [
+                'label' => 'Turi',
+                'value' => function($model) {
+                    if($model->type == 0) {
+                        return 'Klub yangiliklari';
+                    }
+                    else if ($model->type == 1) {
+                        return 'Boshqarma yangiliklari';
+                    }
+                }
+            ],
             //'tags',
 
             [

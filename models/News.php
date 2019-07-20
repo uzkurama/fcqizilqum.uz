@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use Yii;
 
@@ -31,12 +31,13 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'pic', 'language_id', 'tags'], 'required'],
+            [['id', 'title', 'content', 'pic', 'language_id', 'tags'], 'required'],
+            [['id', 'language_id'], 'integer'],
             [['content'], 'string'],
             [['date'], 'safe'],
-            [['language_id', 'type'], 'integer'],
             [['title', 'tags'], 'string', 'max' => 2000],
             [['pic'], 'string', 'max' => 500],
+            [['id'], 'unique'],
         ];
     }
 
@@ -47,12 +48,12 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Sarlavha',
+            'title' => 'Title',
             'content' => 'Content',
-            'pic' => 'Rasm',
-            'date' => 'Sanasi',
-            'language_id' => 'Tili',
-            'tags' => 'Kalit so\'zlar',
+            'pic' => 'Pic',
+            'date' => 'Date',
+            'language_id' => 'Language ID',
+            'tags' => 'Tags',
         ];
     }
 

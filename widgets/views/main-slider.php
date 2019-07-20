@@ -1,38 +1,37 @@
 <?php
 
-use kv4nt\owlcarousel\OwlCarouselWidget;
 
 ?>
 <style>
-    .item-class {
-    height: 70vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
+    .sp1-image {
+        width: 100%;
+        height: auto;
+    }
 </style>
-<?php OwlCarouselWidget::begin([
-    'container' => 'div',
-    'containerOptions' => [
-        'id' => 'container-id',
-        'class' => 'container-class'
-    ],
-    'pluginOptions'    => [
-        'autoplay'          => true,
-        'autoplayTimeout'   => 3000,
-        'items'             => 1,
-        'loop'              => true,
-        'itemsDesktop'      => [1280, 1],
-        'itemsDesktopSmall' => [979, 1],
-        'dots' => false,
-        'autoHeight' => false
-    ]
+<?= \edofre\sliderpro\SliderPro::widget([
+  'id' => 'my-slider',
+  'sliderOptions' => [
+    'width'  => auto,
+    'height' => 650,
+    'arrows' => true,
+    'buttons' => false,
+    'fade' => true,
+    'touchSwipe' => false,
+  ],
 ]);
 ?>
-<?php foreach ($slider as $s):?>
-<div class="item-class" style="background-image: url(<?= Yii::$app->request->baseUrl.$s->image;?>)"><h3>Hello</h3></div>
-<?php endforeach;?>
-<?php OwlCarouselWidget::end(); ?>
 
+<div class="slider-pro" id="my-slider">
+	<div class="sp-slides">
+        <?php foreach ($slider as $s):?>
+		<div class="sp-slide">
+			<img class="sp1-image" style="margin: 0;" src="<?= Yii::$app->request->baseUrl. $s->image;?>"/>
+            <h2 class="sp-layer sp-black"
+				data-position="bottomLeft" data-horizontal="10%"
+				data-show-transition="left" data-show-delay="300" data-hide-transition="right">
+				<?= $s->title;?>
+            </h2>
+		</div>
+        <?php endforeach;?>
+	</div>
+</div>

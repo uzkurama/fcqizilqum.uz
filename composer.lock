@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85cec1f73278bdba0ef6b4d114326986",
+    "content-hash": "66c965797abceb9e0f0bf8741809e667",
     "packages": [
         {
             "name": "2amigos/yii2-leaflet-extension",
@@ -319,24 +319,6 @@
             ]
         },
         {
-            "name": "bower-asset/owl.carousel",
-            "version": "2.3.4",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:OwlFonk/OwlCarousel2.git",
-                "reference": "af851f9b567630d115930abd5480ffebccc72372"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/OwlFonk/OwlCarousel2/zipball/af851f9b567630d115930abd5480ffebccc72372",
-                "reference": "af851f9b567630d115930abd5480ffebccc72372"
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.8.3"
-            },
-            "type": "bower-asset"
-        },
-        {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
@@ -350,6 +332,24 @@
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/slider-pro",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bqworks/slider-pro.git",
+                "reference": "b373526447a0d36110ae0f7ac83d84476a3cc075"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bqworks/slider-pro/zipball/b373526447a0d36110ae0f7ac83d84476a3cc075",
+                "reference": "b373526447a0d36110ae0f7ac83d84476a3cc075"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "bower-asset/sweetalert2",
@@ -665,6 +665,58 @@
                 "yii2"
             ],
             "time": "2018-02-05T13:09:00+00:00"
+        },
+        {
+            "name": "edofre/yii2-slider-pro",
+            "version": "V1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Edofre/yii2-slider-pro.git",
+                "reference": "7a1f60cd96c9d0bf09c8ff5567fa3f5b2f4a7328"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Edofre/yii2-slider-pro/zipball/7a1f60cd96c9d0bf09c8ff5567fa3f5b2f4a7328",
+                "reference": "7a1f60cd96c9d0bf09c8ff5567fa3f5b2f4a7328",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/slider-pro": "1.2.2",
+                "php": ">=5.5.0",
+                "yiisoft/yii2": ">=2.0.9",
+                "yiisoft/yii2-bootstrap": "~2.0.0",
+                "yiisoft/yii2-jui": ">=2.0.6"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "edofre\\sliderpro\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Edo Freriks",
+                    "email": "edofre@gmail.com"
+                }
+            ],
+            "description": "Yii2 widget for slider-pro",
+            "homepage": "https://github.com/edofre/yii2-slider-pro",
+            "keywords": [
+                "images",
+                "jquery",
+                "slider",
+                "slider-pro"
+            ],
+            "time": "2017-03-31T19:32:03+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2697,56 +2749,6 @@
             "time": "2018-10-09T17:40:19+00:00"
         },
         {
-            "name": "kv4nt/yii2-owl-carousel2",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kv4nt/yii2-owl-carousel2.git",
-                "reference": "63c45c0bfc7bf9a78972bdcf07fff193b4995553"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kv4nt/yii2-owl-carousel2/zipball/63c45c0bfc7bf9a78972bdcf07fff193b4995553",
-                "reference": "63c45c0bfc7bf9a78972bdcf07fff193b4995553",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/owl.carousel": "*",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kv4nt\\owlcarousel\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Victor Shumeyko",
-                    "email": "kvant90@gmail.com"
-                }
-            ],
-            "description": "A Yii2 widget for owl carousel 2",
-            "keywords": [
-                "carousel",
-                "extension",
-                "owl",
-                "owlcarousel",
-                "owlcarousel2",
-                "yii2",
-                "yii2 carousel",
-                "yii2 owl",
-                "yii2 owl carousel",
-                "yii2 owlcarousel",
-                "yii2-owl-carousel"
-            ],
-            "time": "2017-09-15T11:16:39+00:00"
-        },
-        {
             "name": "mihaildev/yii2-elfinder",
             "version": "1.3.0",
             "source": {
@@ -3518,16 +3520,16 @@
         },
         {
             "name": "xdan/jodit",
-            "version": "3.2.53",
+            "version": "3.2.54",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xdan/jodit.git",
-                "reference": "467b36cb182688ccd954125fed07d2973907cdcf"
+                "reference": "1c7c1561b54f69815fd6e269f4dbbc4ee32856d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xdan/jodit/zipball/467b36cb182688ccd954125fed07d2973907cdcf",
-                "reference": "467b36cb182688ccd954125fed07d2973907cdcf",
+                "url": "https://api.github.com/repos/xdan/jodit/zipball/1c7c1561b54f69815fd6e269f4dbbc4ee32856d1",
+                "reference": "1c7c1561b54f69815fd6e269f4dbbc4ee32856d1",
                 "shasum": ""
             },
             "type": "library",
@@ -3542,7 +3544,7 @@
                 }
             ],
             "description": "Awesome WYSIWYG editor and FileBrowser",
-            "time": "2019-07-14T22:45:01+00:00"
+            "time": "2019-07-18T20:38:24+00:00"
         },
         {
             "name": "yiimaker/yii2-social-share",

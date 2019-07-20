@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\News;
+use app\models\News;
 
 /**
- * NewsSearch represents the model behind the search form of `app\modules\admin\models\News`.
+ * NewsSearch represents the model behind the search form of `app\models\News`.
  */
 class NewsSearch extends News
 {
@@ -59,13 +59,13 @@ class NewsSearch extends News
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'date' => $this->date,
             'language_id' => $this->language_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'pic', $this->pic])
-            ->andFilterWhere(['like', 'date', strtotime($this->date)])
             ->andFilterWhere(['like', 'tags', $this->tags]);
 
         return $dataProvider;

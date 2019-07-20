@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\NewsSearch */
+/* @var $model app\models\NewsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -18,24 +18,23 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
+    <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'title') ?>
 
-    <?php echo $form->field($model, 'date')->widget('trntv\yii\datetime\DateTimeWidget',
-        [
-            'phpDatetimeFormat' => 'dd-MM-yyyy, 12:00:00',
-            'momentDatetimeFormat' => 'DD-MM-YYYY',
-            'clientOptions' => [
-                'allowInputToggle' => false,
-                'sideBySide' => true,
-            ],
-        ]
-    )->label('Sanasi'); ?>
+    <?= $form->field($model, 'content') ?>
 
-    <?= $form->field($model, 'tags') ?>
+    <?= $form->field($model, 'pic') ?>
+
+    <?= $form->field($model, 'date') ?>
+
+    <?php // echo $form->field($model, 'language_id') ?>
+
+    <?php // echo $form->field($model, 'tags') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

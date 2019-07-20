@@ -299,14 +299,14 @@ $(document).ready(function () {
         $('#club_news').slick(slickOptions);
     }
     
-    $('#world_news_button').on('shown.bs.tab', function () {
+    $('#boshqarma_news_but').on('shown.bs.tab', function () {
         $('#club_news').slick('unslick');
-        $('#world_news').slick(slickOptions);
+        $('#boshqarma_news').slick(slickOptions);
     });
 
-    $('#club_news_button').on('shown.bs.tab', function () {
-        $('#world_news').slick('unslick');
-        $('#club_news').slick(slickOptions);
+    $('#club_news_but').on('shown.bs.tab', function () {
+        $('#club_news').slick('unslick');
+        $('#boshqarma_news').slick(slickOptions);
     });
 
     /*------------------- history slide ----------------*/
