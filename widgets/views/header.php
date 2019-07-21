@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 $current_lang = app\models\Language::find()->where(['language_code_id' => app\models\Country::find()->where(['language_code' => Yii::$app->language])->select('id')->one()])->select('name')->one();
 $current_lang_code = app\models\Country::find()->where(['language_code' => Yii::$app->language])->select('language_code')->one();

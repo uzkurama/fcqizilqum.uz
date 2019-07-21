@@ -17,8 +17,8 @@ class MatchesSearch extends Matches
     public function rules()
     {
         return [
-            [['id', 'guest_team', 'home_team', 'date', 'status'], 'integer'],
-            [['stadion'], 'string'],
+            [['id', 'guest_team', 'home_team', 'status'], 'integer'],
+            [['stadion', 'date'], 'string'],
         ];
     }
 
@@ -61,11 +61,12 @@ class MatchesSearch extends Matches
             'id' => $this->id,
             'guest_team' => $this->guest_team,
             'home_team' => $this->home_team,
-            'date' => $this->date,
             'status' => $this->status,
             'region_id' => $this->region_id,
-            'stadion' => $this->stadion,
         ]);
+
+        $query->andFilterWhere(['like', 'stadion', $this->stadion])
+            ->andFilterWhere(['like', 'date', strtotime($this->date)]);
 
         return $dataProvider;
     }

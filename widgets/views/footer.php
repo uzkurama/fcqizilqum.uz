@@ -33,12 +33,7 @@ use yii\helpers\Url;
                     <p>
                         <a target="_blank" href="https://www.google.com/maps/@<?= $c->lat;?>,<?= $c->lng;?>,16z?hl=ru">
                             <i class="fas fa-location-arrow"></i>
-                            <?php foreach ($c->adress as $adr) {
-                                $current_lang = app\models\Language::find()->where(['id' => $adr[adress_language]])->select('iso_name')->one();
-                                if($current_lang->iso_name == Yii::$app->language){
-                                    echo $adr[adress_text];
-                                }
-                            } ?>
+                            <?= \app\components\DefaultComponent::name($c->adress);?>
                         </a>
                     </p>
                     <?php endforeach;?>

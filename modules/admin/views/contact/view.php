@@ -49,9 +49,7 @@ $language = app\models\Language::find()->where(['id' => $lang])->asArray()->all(
             <?php $b=0; for($a = 0; $a < count($language); $a++):?>
             <tr>
                 <th>
-
-                        <?= Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$language[$a]['iso_name'].'.gif', ['class' => 'language_flag']).$language[$a]['name'];?>
-
+                    <?= Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$language[$a]['iso_name'].'.gif', ['class' => 'language_flag']).$language[$a]['name'];?>
                 </th>
                 <td>
                     <?= $model->adress[$b++]['adress_text'];?>

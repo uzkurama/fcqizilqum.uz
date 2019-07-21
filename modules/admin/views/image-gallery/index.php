@@ -34,8 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'title',
-            'date',
+            [
+                'label' => 'Sarlavha',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->title);
+                }
+            ],
+            'date:date',
             'images',
 
             ['class' => 'yii\grid\ActionColumn'],

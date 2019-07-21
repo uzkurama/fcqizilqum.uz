@@ -8,8 +8,7 @@ use Yii;
  * This is the model class for table "regions".
  *
  * @property int $id
- * @property string $name
- * @property int $language_id
+ * @property array $name
  */
 class Regions extends \yii\db\ActiveRecord
 {
@@ -28,8 +27,7 @@ class Regions extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['language_id'], 'integer'],
-            [['name'], 'string', 'max' => 500],
+            [['name'], 'safe'],
         ];
     }
 
@@ -41,7 +39,6 @@ class Regions extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'language_id' => 'Language ID',
         ];
     }
 }

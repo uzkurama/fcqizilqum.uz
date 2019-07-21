@@ -28,9 +28,9 @@ class MainSlider extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image', 'language_id'], 'required'],
-            [['language_id'], 'integer'],
-            [['title', 'image'], 'string', 'max' => 500],
+            [['image'], 'required'],
+            [['image'], 'string', 'max' => 500],
+            [['title'], 'safe'],
         ];
     }
 
@@ -43,12 +43,6 @@ class MainSlider extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'image' => 'Image',
-            'language_id' => 'Language ID',
         ];
-    }
-
-    public function getLang()
-    {
-        return $this->hasOne(Language::className(), ['id' => 'language_id']);
     }
 }

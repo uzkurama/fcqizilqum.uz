@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Imagegallery */
 
-$this->title = 'Update Imagegallery: ' . $model->title;
+$this->title = \app\components\DefaultComponent::name($model->title);
 $this->params['breadcrumbs'][] = ['label' => 'Imagegalleries', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => \app\components\DefaultComponent::name($model->title), 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="imagegallery-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

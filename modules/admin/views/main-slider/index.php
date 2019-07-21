@@ -31,15 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title',
-            'image:image',
             [
-                'label' => 'Tili',
-                'format' => 'raw',
+                'label' => 'Sarlavha',
                 'value' => function($model) {
-                    return Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$model->lang->iso_name.'.gif', ['class' => 'flag']).' '.$model->lang->name;
+                    return \app\components\DefaultComponent::name($model->title);
                 }
             ],
+            'image:image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

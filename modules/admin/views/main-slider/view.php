@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\MainSlider */
 
-$this->title = $model->title;
+$this->title = \app\components\DefaultComponent::name($model->title);
 $this->params['breadcrumbs'][] = ['label' => 'Slayder', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -30,9 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
+            [
+                'label' => 'Sarlavha',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->title);
+                }
+            ],
             'image',
-            'language_id',
         ],
     ]) ?>
 

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Teams */
 
-$this->title = $model->name;
+$this->title = \app\components\DefaultComponent::name($model->name);
 $this->params['breadcrumbs'][] = ['label' => 'Teams', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -30,10 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
+            [
+                'label' => 'Ismi',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->name);
+                }
+            ],
             'logo',
             'region_id',
-            'language_id',
         ],
     ]) ?>
 

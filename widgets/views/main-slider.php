@@ -2,12 +2,6 @@
 
 
 ?>
-<style>
-    .sp1-image {
-        width: 100%;
-        height: auto;
-    }
-</style>
 <?= \edofre\sliderpro\SliderPro::widget([
   'id' => 'my-slider',
   'sliderOptions' => [
@@ -25,11 +19,11 @@
 	<div class="sp-slides">
         <?php foreach ($slider as $s):?>
 		<div class="sp-slide">
-			<img class="sp1-image" style="margin: 0;" src="<?= Yii::$app->request->baseUrl. $s->image;?>"/>
+			<img class="sp-image" style="margin: 0;" src="<?= Yii::$app->request->baseUrl. $s->image;?>"/>
             <h2 class="sp-layer sp-black"
 				data-position="bottomLeft" data-horizontal="10%"
 				data-show-transition="left" data-show-delay="300" data-hide-transition="right">
-				<?= $s->title;?>
+				<?= \app\components\DefaultComponent::name($s->title);?>
             </h2>
 		</div>
         <?php endforeach;?>

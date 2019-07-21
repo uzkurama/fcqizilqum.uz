@@ -3,11 +3,11 @@
 /* @var $this yii\web\View */
 
 foreach ($seo as $s):
-    $this->site = Yii::t('app', $s->title);
+    $this->site = \app\components\DefaultComponent::name($s->title);
     $this->generator = '';
-    $this->title = Yii::t('app', $s->title);
-    $this->description = Yii::t('app', $s->description);
-    $this->image = Yii::t('app', $s->image);
+    $this->title = \app\components\DefaultComponent::name($s->title);
+    $this->description = \app\components\DefaultComponent::name($s->description);
+    $this->image = $s->image;
 endforeach;
 ?>
 <div class="row">

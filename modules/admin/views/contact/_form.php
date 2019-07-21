@@ -46,7 +46,7 @@ $this->registerJs($format, View::POS_HEAD);
         'max' => 99,
         'columns' => [
             [
-                'name'  => 'adress_language',
+                'name'  => 'language',
                 'type'  => \kartik\select2\Select2::className(),
                 'title' => 'Tili',
                 'options' => [
@@ -63,7 +63,7 @@ $this->registerJs($format, View::POS_HEAD);
                 ],
             ],
             [
-                'name' => 'adress_text',
+                'name' => 'text',
                 'type' => 'textInput',
                 'title' => 'Manzil matni',
             ],

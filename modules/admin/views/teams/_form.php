@@ -6,8 +6,8 @@ use yii\web\JsExpression;
 use yii\bootstrap\ActiveForm;
 use mihaildev\elfinder\InputFile;
 use app\modules\admin\models\Regions;
-use kartik\select2\Select2;
 use yii\web\View;
+use unclead\multipleinput\MultipleInput;
 
 $url = \Yii::$app->urlManager->baseUrl . '/images/flags/';
 $format = <<< SCRIPT
@@ -26,7 +26,34 @@ $this->registerJs($format, View::POS_HEAD);
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->widget(MultipleInput::className(), [
+        'max' => 99,
+        'columns' => [
+            [
+                'name'  => 'language',
+                'type'  => \kartik\select2\Select2::className(),
+                'title' => 'Tili',
+                'options' => [
+                    'options' => [
+                        'placeholder' => 'Tilni tanlash...',
+                    ],
+                    'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
+                    'pluginOptions' => [
+                        'templateResult' => new JsExpression('format'),
+                            'templateSelection' => new JsExpression('format'),
+                            'escapeMarkup' => $escape,
+                            'allowClear' => true
+                    ],
+                ],
+            ],
+            [
+                'name' => 'text',
+                'type' => 'textInput',
+                'title' => 'Matni',
+            ],
+        ],
+     ]);
+    ?>
 
     <?php echo $form->field($model, 'logo')->widget(InputFile::className(), [
         'language'      => 'ru',
@@ -39,17 +66,6 @@ $this->registerJs($format, View::POS_HEAD);
     ]);?>
 
     <?= $form->field($model, 'region_id')->dropDownList(Regions::find()->select(['name', 'id'])->where(['language_id' => 1])->column(), ['prompt' => 'Tanlash...']) ?>
-
-    <?= $form->field($model, 'language_id')->widget(Select2::classname(), [
-        'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
-        'options' => ['placeholder' => 'Tilni tanlash...'],
-        'pluginOptions' => [
-            'templateResult' => new JsExpression('format'),
-                'templateSelection' => new JsExpression('format'),
-                'escapeMarkup' => $escape,
-                'allowClear' => true
-        ],
-    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

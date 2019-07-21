@@ -17,7 +17,7 @@ class TeamSearch extends Team
     public function rules()
     {
         return [
-            [['id', 'lang_id'], 'integer'],
+            [['id'], 'integer'],
             [['name', 'post', 'pic'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class TeamSearch extends Team
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'lang_id' => $this->lang_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

@@ -12,14 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="seo-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a('Create Seo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -28,9 +25,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title',
-            'description:ntext',
-            'image',
+            [
+                'label' => 'Sarlavha',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->title);
+                }
+            ],
+            [
+                'label' => 'Sarlavha',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->description);
+                }
+            ],
+            'image:image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

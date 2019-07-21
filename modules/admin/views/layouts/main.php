@@ -43,9 +43,15 @@ DateTimeAsset::register($this);
             <?= Nav::widget([
                 'options' => ['class' => 'nav'],
                 'items' => [
-                    ['label' => 'Bosh sahifa', 'url' => ['/admin/default/index']],
                     ['label' => 'Yangiliklar', 'url' => ['/admin/news/index']],
-                    ['label' => 'Contact', 'url' => ['/admin/contact/view', 'id' => 1]],
+                    [
+                        'label' => 'Asosiy ma\'lumotlar',
+                        'items' => [
+                                ['label' => 'Contact', 'url' => ['/admin/contact/view', 'id' => 1]],
+                                ['label' => 'Qizilqum haqida', 'url' => ['/admin/about/view', 'id' => 1]],
+                                ['label' => 'SEO', 'url' => ['/admin/seo/view', 'id' => 1]],
+                        ],
+                    ],
                     [
                         'label' => 'Sayt tillari',
                         'items' => [
@@ -56,8 +62,20 @@ DateTimeAsset::register($this);
                     ],
                     ['label' => 'Jamoalar', 'url' => ['/admin/teams/index']],
                     ['label' => 'Qizilqum jamoasi', 'url' => ['/admin/team/index']],
-                    ['label' => 'O\'yinlar', 'url' => ['/admin/matches/index']],
-                    ['label' => 'Slayder', 'url' => ['/admin/main-slider/index']],
+                    [
+                        'label' => 'Futbol',
+                        'items' => [
+                                ['label' => 'O\'yinlar', 'url' => ['/admin/matches/index']],
+                                ['label' => 'Turnirlar jadvali', 'url' => ['/admin/scoreboard/index']],
+                        ],
+                    ],
+                    [
+                        'label' => 'Sayt sozlamalari',
+                        'items' => [
+                                ['label' => 'Slayder', 'url' => ['/admin/main-slider/index']],
+                                ['label' => 'Viloyatlar', 'url' => ['/admin/regions/index']],
+                        ],
+                    ],
                     [
                         'label' => 'Galereyalar',
                         'items' => [
@@ -65,10 +83,9 @@ DateTimeAsset::register($this);
                             ['label' => 'Videolar', 'url' => ['/admin/video-gallery/index']],
                         ],
                     ],
-                    ['label' => 'SEO', 'url' => ['/admin/seo/view', 'id' => 1]],
                     Yii::$app->user->identity->username == 'kurama' ? (
-                        ['label' => 'User options', 'url' => ['/admin/default/superuser']]
-                    ) : (['label' => 'User options', 'url' => ['/admin/default/user']]),
+                        ['label' => 'Profil sozlamalari', 'url' => ['/admin/default/superuser']]
+                    ) : (['label' => 'Profil sozlamalari', 'url' => ['/admin/default/user']]),
                     Yii::$app->user->isGuest ? (
                         ['label' => 'Login', 'url' => ['/site/login']]
                     ) : ['label' => 'Logout', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],

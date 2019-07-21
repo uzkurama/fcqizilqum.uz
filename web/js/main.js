@@ -305,8 +305,8 @@ $(document).ready(function () {
     });
 
     $('#club_news_but').on('shown.bs.tab', function () {
-        $('#club_news').slick('unslick');
-        $('#boshqarma_news').slick(slickOptions);
+        $('#boshqarma_news').slick('unslick');
+        $('#club_news').slick(slickOptions);
     });
 
     /*------------------- history slide ----------------*/

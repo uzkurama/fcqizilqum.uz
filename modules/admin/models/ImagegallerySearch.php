@@ -17,8 +17,8 @@ class ImagegallerySearch extends Imagegallery
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'date', 'images'], 'safe'],
+            [['id', 'date'], 'integer'],
+            [['title', 'images'], 'safe'],
         ];
     }
 
@@ -59,11 +59,11 @@ class ImagegallerySearch extends Imagegallery
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'images', $this->images]);
+            ->andFilterWhere(['like', 'images', $this->images])
+            ->andFilterWhere(['like', 'date', $this->date]);
 
         return $dataProvider;
     }

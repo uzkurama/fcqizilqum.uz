@@ -35,16 +35,6 @@ $this->registerJs($format, View::POS_HEAD);
 
     <?= $form->field($model, 'post') ?>
 
-    <?= $form->field($model, 'lang_id')->widget(Select2::classname(), [
-        'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
-        'options' => ['placeholder' => 'Tilni tanlash...'],
-        'pluginOptions' => [
-            'templateResult' => new JsExpression('format'),
-                'templateSelection' => new JsExpression('format'),
-                'escapeMarkup' => $escape,
-                'allowClear' => true
-        ],
-    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

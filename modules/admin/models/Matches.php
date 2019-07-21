@@ -32,7 +32,7 @@ class Matches extends \yii\db\ActiveRecord
             [['guest_team', 'home_team', 'date', 'status'], 'required'],
             [['guest_team', 'home_team', 'status', 'region_id' ], 'integer'],
             [['date'], 'safe'],
-            [['stadion'], 'string'],
+            [['stadion'], 'safe'],
         ];
     }
 
@@ -50,5 +50,17 @@ class Matches extends \yii\db\ActiveRecord
             'region' => 'Region_id',
             'stadion' => 'Stadion',
         ];
+    }
+
+    public function getHomeTeams() {
+        return $this->hasOne(Teams::className(), ['id' => 'home_team']);
+    }
+
+    public function getGuestTeams() {
+        return $this->hasOne(Teams::className(), ['id' => 'guest_team']);
+    }
+
+    public function getRegion() {
+        return $this->hasOne(Regions::className(), ['id' => 'region_id']);
     }
 }

@@ -29,8 +29,8 @@ class Seo extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'description', 'image'], 'required'],
-            [['description'], 'string'],
-            [['title', 'image'], 'string', 'max' => 500],
+            [['title', 'description'], 'safe'],
+            [['image'], 'string', 'max' => 500],
         ];
     }
 

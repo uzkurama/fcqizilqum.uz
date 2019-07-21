@@ -17,7 +17,7 @@ class MainSliderSearch extends MainSlider
     public function rules()
     {
         return [
-            [['id', 'language_id'], 'integer'],
+            [['id'], 'integer'],
             [['title', 'image'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class MainSliderSearch extends MainSlider
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'language_id' => $this->language_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

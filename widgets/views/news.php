@@ -3,9 +3,20 @@
 use yii\helpers\Url;
 use yii\helpers\StringHelper;
 
-?>
 
-<section class="latest_news bg-white">
+$this->registerJs("jQuery('.slick-slide').bind('touchstart', function(){ console.log('touchstart') });", yii\web\View::POS_END);
+?>
+<style>
+    .slick-list{
+      overflow: hidden;
+    }
+    .slick-list:after{
+      clear: both;
+      content: "";
+      display: block;
+    }
+</style>
+<section class="latest_news bg-white" style="padding: 30px 0;">
     <div class=container>
         <div class=row><h2 class="heading"><span><?= Yii::t('app', 'So\'nggi yangiliklar');?></span></h2>
             <div class="LatestNews_wrap clearfix">
@@ -33,7 +44,7 @@ use yii\helpers\StringHelper;
                         </li>
                         <?php endforeach;?>
                     </ul>
-<!--                    <a class="prv club_prev"></a> <a class="nxt club_next"></a>-->
+                    <a class="prv club_prev"></a> <a class="nxt club_next"></a>
                     <ul id=boshqarma_news class="tab-pane">
                         <?php foreach ($boshqarma as $b):?>
                         <li>

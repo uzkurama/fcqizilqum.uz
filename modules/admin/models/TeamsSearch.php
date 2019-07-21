@@ -17,7 +17,7 @@ class TeamsSearch extends Teams
     public function rules()
     {
         return [
-            [['id', 'region_id', 'language_id'], 'integer'],
+            [['id', 'region_id'], 'integer'],
             [['name', 'logo'], 'safe'],
         ];
     }
@@ -60,7 +60,6 @@ class TeamsSearch extends Teams
         $query->andFilterWhere([
             'id' => $this->id,
             'region_id' => $this->region_id,
-            'language_id' => $this->language_id,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

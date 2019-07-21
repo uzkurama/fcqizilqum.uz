@@ -70,6 +70,7 @@ class ImageGalleryController extends Controller
         $model = new Imagegallery();
 
         if ($model->load(Yii::$app->request->post())) {
+            $model->date = strtotime($model->date);
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -90,7 +91,9 @@ class ImageGalleryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->date = strtotime($model->date);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

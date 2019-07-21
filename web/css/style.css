@@ -51,6 +51,12 @@ _________________________________
 @import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
 @import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic");
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("fonts/fontawesome-webfont93e3.eot?v=4.4.0");
+  src: url("fonts/fontawesome-webfontd41d.eot?#iefix&v=4.4.0") format("embedded-opentype"), url("fonts/fontawesome-webfont93e3.woff2?v=4.4.0") format("woff2"), url("fonts/fontawesome-webfont93e3.woff?v=4.4.0") format("woff"), url("fonts/fontawesome-webfont93e3.ttf?v=4.4.0") format("truetype"), url("fonts/fontawesome-webfont93e3.svg?v=4.4.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

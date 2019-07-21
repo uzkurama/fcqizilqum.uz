@@ -10,7 +10,7 @@ class MainSliderWidget extends Widget
 {
     public function run()
     {
-        $slider = MainSlider::find()->where(['language_id' => Language::find()->select(['id'])->where(['iso_name' => \Yii::$app->language])->one()])->all();
+        $slider = MainSlider::find()->all();
         return $this->render('main-slider', [
             'slider' => $slider,
         ]);

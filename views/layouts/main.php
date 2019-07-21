@@ -32,6 +32,7 @@ FontAwesomeAsset::register($this);
     }
     ?>
     <?= \app\widgets\NewsWidget::widget();?>
+    <?= \app\widgets\MatchScheduleWidget::widget();?>
     <?= \app\widgets\AboutWidget::widget();?>
     <?= \app\widgets\FooterWidget::widget();?>
 </div>

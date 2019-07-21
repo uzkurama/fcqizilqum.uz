@@ -29,8 +29,7 @@ class Imagegallery extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'date', 'images'], 'required'],
-            [['date', 'images'], 'safe'],
-            [['title'], 'string', 'max' => 500],
+            [['images', 'title', 'date'], 'safe'],
         ];
     }
 

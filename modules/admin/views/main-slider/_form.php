@@ -7,6 +7,7 @@ use yii\web\JsExpression;
 use kartik\select2\Select2;
 use yii\helpers\Arrayhelper;
 use yii\web\View;
+use unclead\multipleinput\MultipleInput;
 
 $url = \Yii::$app->urlManager->baseUrl . '/images/flags/';
 $format = <<< SCRIPT
@@ -25,7 +26,34 @@ $this->registerJs($format, View::POS_HEAD);
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->widget(MultipleInput::className(), [
+        'max' => 99,
+        'columns' => [
+            [
+                'name'  => 'language',
+                'type'  => \kartik\select2\Select2::className(),
+                'title' => 'Tili',
+                'options' => [
+                    'options' => [
+                        'placeholder' => 'Tilni tanlash...',
+                    ],
+                    'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
+                    'pluginOptions' => [
+                        'templateResult' => new JsExpression('format'),
+                            'templateSelection' => new JsExpression('format'),
+                            'escapeMarkup' => $escape,
+                            'allowClear' => true
+                    ],
+                ],
+            ],
+            [
+                'name' => 'text',
+                'type' => 'textInput',
+                'title' => 'Matni',
+            ],
+        ],
+     ])->label('Sarlavha');
+    ?>
 
     <?php echo $form->field($model, 'image')->widget(InputFile::className(), [
         'language'      => 'ru',
@@ -37,16 +65,6 @@ $this->registerJs($format, View::POS_HEAD);
         'multiple'      => false       // возможность выбора нескольких файлов
     ]);?>
 
-    <?= $form->field($model, 'language_id')->widget(Select2::classname(), [
-        'data' => Arrayhelper::map(app\models\Language::find()->where(['status' => '1'])->all(), 'id', 'iso_name'),
-        'options' => ['placeholder' => 'Tilni tanlash...'],
-        'pluginOptions' => [
-            'templateResult' => new JsExpression('format'),
-                'templateSelection' => new JsExpression('format'),
-                'escapeMarkup' => $escape,
-                'allowClear' => true
-        ],
-    ])->label(false); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

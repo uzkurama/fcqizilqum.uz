@@ -6,14 +6,17 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Team */
 
-$this->title = $model->name;
+$this->title = \app\components\DefaultComponent::name($model->name);
 $this->params['breadcrumbs'][] = ['label' => 'Qizilqum jamoasi', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+<style>
+    td img {
+       width: 150px;
+    }
+</style>
 <div class="team-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,10 +33,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
-            'post',
-            'pic',
-            'lang_id',
+            [
+                'label' => 'Ismi',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->name);
+                }
+            ],
+            [
+                'label' => 'Pozitsiya',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->post);
+                }
+            ],
+            'pic:image',
         ],
     ]) ?>
 

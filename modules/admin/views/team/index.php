@@ -16,9 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
     td img {
        width: 150px;
     }
-    .modal-backdrop {
-        display: none;
-    }
 </style>
 
 <div class="team-index">
@@ -28,11 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php Modal::begin([
-        'toggleButton' => ['label' => 'Qidirish', 'class' => 'btn btn-info'],
-    ]);?>
-    <?= $this->render('_search', ['model' => $searchModel]); ?>
-    <?php Modal::end();?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -41,10 +33,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
-            'post',
+            [
+                'label' => 'Ismi',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->name);
+                }
+            ],
+            [
+                'label' => 'Pozitsiya',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->post);
+                }
+            ],
             'pic:image',
-            'lang_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
