@@ -36,22 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]); ?>
         </div>
-        <div class="col-md-6">
-            <?= GridView::widget([
-                'dataProvider' => $dataProvider,
-                'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-                    [
-                        'label' => 'Klub'
-                    ],
-                    'win',
-                    'lose',
-                    'draw',
-                    'pts',
-                    'type',
-                ],
-            ]); ?>
-        </div>
     </div>
 
     <?php Pjax::end(); ?>

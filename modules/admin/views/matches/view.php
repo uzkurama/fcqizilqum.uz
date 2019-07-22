@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\admin\models\Matches */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Matches', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'O\'yinlar', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -30,9 +30,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'guest_team',
-            'home_team',
-            'date',
+            [
+                'label' => 'Uyda',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->homeTeams->name);
+                }
+            ],
+            [
+                'label' => 'Mehmon',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->guestTeams->name);
+                }
+            ],
+            'date:datetime',
+            [
+                'label' => 'Viloyat',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->region->name);
+                }
+            ],
             'status',
         ],
     ]) ?>

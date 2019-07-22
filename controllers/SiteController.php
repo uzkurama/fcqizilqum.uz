@@ -23,6 +23,22 @@ class SiteController extends Controller
         return $val;
     }
 
+    public function getMatchDate()
+    {
+        $values=\app\models\Matches::find()->orderBy('date DESC')->all();
+
+        foreach ($values as $value){
+            if($value->date > date('U'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
     public $layout = 'content';
     /**
      * {@inheritdoc}

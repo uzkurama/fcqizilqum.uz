@@ -24,13 +24,14 @@ FontAwesomeAsset::register($this);
 
 <div class=wrapper>
     <?= \app\widgets\HeaderWidget::widget();?>
-    <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0){
+    <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0 && \app\controllers\SiteController::getMatchDate() != null){
         echo \app\widgets\NextMatchWidget::widget();
     }
-    else if(\app\controllers\SiteController::getStatus(15, 'value') == 1) {
+    else if(\app\controllers\SiteController::getStatus(15, 'value') == 1 || \app\controllers\SiteController::getMatchDate() == null) {
         echo \app\widgets\MainSliderWidget::widget();
     }
     ?>
+    <?= var_dump(\app\controllers\SiteController::getMatchDate());?>
     <?= \app\widgets\NewsWidget::widget();?>
     <?= \app\widgets\MatchScheduleWidget::widget();?>
     <?= \app\widgets\AboutWidget::widget();?>

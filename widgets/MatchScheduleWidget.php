@@ -9,7 +9,7 @@ class MatchScheduleWidget extends Widget
 {
     public function run()
     {
-        $matches = Matches::find()->where(['>','date', date('U')])->orderBy('date DESC')->all();
+        $matches = Matches::find()->where(['>','date', date('U')])->orderBy('date ASC')->all();
         return $this->render('match-schedule', [
             'matches' => $matches,
         ]);
