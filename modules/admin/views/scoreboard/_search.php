@@ -20,17 +20,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'team_id') ?>
+    <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'win') ?>
+    <?= $form->field($model, 'date') ?>
 
-    <?= $form->field($model, 'lose') ?>
-
-    <?= $form->field($model, 'draw') ?>
-
-    <?php // echo $form->field($model, 'pts') ?>
-
-    <?php // echo $form->field($model, 'type') ?>
+    <?= $form->field($model, 'table_params') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

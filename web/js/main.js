@@ -519,10 +519,10 @@ $(document).ready(function () {
         parentli.siblings('li').removeClass('active');
         var videourl = $this.data('yt-video');
         if(videoElement.data('current-video') !== videourl){
-            videoElement.html('<iframe src="http://www.youtube.com/embed/' + videourl + '" class="liveVideo" allowfullscreen=""></iframe>');
-            videoElement.attr('data-current-video', videourl);
+            videoElement.html('<iframe width="100%" height="100%" src="' + videourl + '" class="liveVideo" allowfullscreen=""></iframe>');
+            videoElement.data('currentVideo', videourl);
+            parentli.addClass('active');
         }
-        parentli.addClass('active');
     });
 
     /*------------ tab animation ------------------*/

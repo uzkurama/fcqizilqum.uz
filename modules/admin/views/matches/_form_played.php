@@ -43,10 +43,10 @@ $teams = \app\components\DefaultComponent::dropdown($t);
         <thead>
             <tr>
                 <th>
-                    Uyda
+                    Mehmonda
                 </th>
                 <th>
-                    Mehmonda
+                    Uyda
                 </th>
             </tr>
         </thead>

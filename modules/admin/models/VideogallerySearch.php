@@ -17,7 +17,7 @@ class VideogallerySearch extends Videogallery
     public function rules()
     {
         return [
-            [['id'], 'integer'],
+            [['id', 'type'], 'integer'],
             [['title', 'date', 'url'], 'safe'],
         ];
     }
@@ -59,10 +59,11 @@ class VideogallerySearch extends Videogallery
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
+            'type' => $this->type,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'date', strtotime($this->date)])
             ->andFilterWhere(['like', 'url', $this->url]);
 
         return $dataProvider;

@@ -20,6 +20,10 @@ SCRIPT;
 $escape = new JsExpression("function(m) { return m; }");
 $this->registerJs($format, View::POS_HEAD);
 
+$r = \app\modules\admin\models\Regions::find()->select(['id', 'name'])->asArray()->all();
+$regions = \app\components\DefaultComponent::dropdown($r);
+
+
 ?>
 
 <div class="teams-form">
@@ -65,7 +69,7 @@ $this->registerJs($format, View::POS_HEAD);
         'multiple'      => false       // возможность выбора нескольких файлов
     ]);?>
 
-    <?= $form->field($model, 'region_id')->dropDownList(Regions::find()->select(['name', 'id'])->where(['language_id' => 1])->column(), ['prompt' => 'Tanlash...']) ?>
+    <?= $form->field($model, 'region_id')->dropDownList($regions, ['prompt' => 'Tanlash...']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -17,7 +17,8 @@ class ScoreboardSearch extends Scoreboard
     public function rules()
     {
         return [
-            [['id', 'team_id', 'win', 'lose', 'draw', 'pts', 'type'], 'integer'],
+            [['id', 'date'], 'integer'],
+            [['table_params', 'name'], 'safe'],
         ];
     }
 
@@ -58,13 +59,11 @@ class ScoreboardSearch extends Scoreboard
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'team_id' => $this->team_id,
-            'win' => $this->win,
-            'lose' => $this->lose,
-            'draw' => $this->draw,
-            'pts' => $this->pts,
-            'type' => $this->type,
+            'date' => $this->date,
         ]);
+
+        $query->andFilterWhere(['like', 'table_params', $this->table_params])
+            ->andFilterWhere(['like', 'date', strtotime($this->date)]);
 
         return $dataProvider;
     }

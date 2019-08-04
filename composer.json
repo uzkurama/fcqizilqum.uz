@@ -40,7 +40,9 @@
         "bizley/migration": "~3.0.0",
         "webvimark/module-user-management": "^1",
         "trntv/yii2-datetime-widget": "*",
-        "edofre/yii2-slider-pro": "V1.1.6"
+        "edofre/yii2-slider-pro": "V1.1.6",
+        "toriphes/yii2-widget-lazyload": "*",
+        "kop/yii2-scroll-pager": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

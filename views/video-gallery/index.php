@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\ScoreboardTypeSearch */
+/* @var $searchModel app\models\VideoGallerySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Scoreboard Types';
+$this->title = 'Videogalleries';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="scoreboard-type-index">
+<div class="videogallery-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Scoreboard Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Videogallery', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -28,7 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            'title',
+            'date',
+            'type',
+            'url:url',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

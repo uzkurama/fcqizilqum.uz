@@ -9,10 +9,66 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\filters\Cors;
+use app\models\Scoreboard;
 
 
 class SiteController extends Controller
 {
+    public $layout = 'content';
+    public $enableCsrfValidation = false;
+
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            'corsFilter'  => [
+                'class' => Cors::className(),
+                'cors'  => [
+                    'Origin' => static::allowedDomains(),
+//                    'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+                    'Access-Control-Allow-Credentials' => true,
+                    'Access-Control-Max-Age' => 3600,
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ]);
+    }
+
+
+
+    public function actionTableUpdate()
+    {
+        $this->layout = false;
+        $table = Scoreboard::find()->where(['id' => 1])->one();
+        if(Yii::$app->request->post() && Yii::$app->request->isAjax){
+            $id = Yii::$app->request->post('id');
+            $table = Scoreboard::find()->where(['id' => $id])->one();
+            return $this->render('table_template', [
+                'table' => $table,
+            ]);
+        }
+
+        return $this->render('table', [
+            'table' => $table,
+        ]);
+    }
+
+    public static function allowedDomains() {
+        return [
+            'https://www.youtube.com',
+            'https://googleads.g.doubleclick.net/pagead/id',
+            'https://www.mover.uz',
+            'https://mover.uz',
+            'https://i.mover.uz/1VZp5pTm_th.webvtt',
+            'http://www.mover.uz',
+            'http://www.mover.uz',
+        ];
+    }
 
     public function getStatus($id, $param){
         $values=\app\models\Option::find()->select($param)->where(['id' => $id])->all();
@@ -39,33 +95,6 @@ class SiteController extends Controller
         }
     }
 
-    public $layout = 'content';
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -74,6 +103,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
+                'layout' => 'error',
             ],
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -91,71 +121,44 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->layout = 'main';
-        $seo = \app\models\Seo::find()->where(['id' => 1])->all();
-        return $this->render('index', [
-            'seo' => $seo,
-        ]);
-    }
+        $table = Scoreboard::find()->where(['id' => 1])->one();
 
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+        if(Yii::$app->request->isAjax){
+            $id = Yii::$app->request->post('id');
+            $table = Scoreboard::find()->where(['id' => $id])->one();
+            return $this->renderPartial('index', [
+                'table' => $table,
+            ]);
         }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        else {
+            return $this->render('index', [
+                'table' => $table,
+            ]);
         }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
-    public function actionLogout()
+
+    public function actionLanguage($ln)
     {
-        Yii::$app->user->logout();
+        $language = \app\models\Language::find()->joinWith('languageCode')->where(['language.status'=>'1','country.language_code'=>$ln])->one();
 
-        return $this->goHome();
-    }
+        if($language != null){
+            $lan_code = $language->languageCode->language_code;
+            Yii::$app->language = $lan_code;
+            $cookie = new Yii\web\cookie([
+              'name'=>'language',
+              'value'=>$lan_code
+            ]);
+            Yii::$app->getResponse()->getCookies()->add($cookie);
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
+            $session = Yii::$app->session;
+            !$session->isActive ? $session->open() : $session->close();
+            $session->set('language', $lan_code);
+            $session->close();
+            return isset($_SERVER['HTTP_REFERER']) ? $this->redirect($_SERVER['HTTP_REFERER']) : $this->redirect(Yii::$app->homeUrl);
+        }else{
+            return $this->redirect('/');
         }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }

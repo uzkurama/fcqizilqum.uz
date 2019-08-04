@@ -63,6 +63,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return \app\components\DefaultComponent::name($model->region->name);
                 }
             ],
+            [
+                'label' => 'Viloyat',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->stadion);
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

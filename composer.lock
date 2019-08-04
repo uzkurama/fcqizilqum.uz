@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66c965797abceb9e0f0bf8741809e667",
+    "content-hash": "814967c7055cca0ef1ff2e819f4002f3",
     "packages": [
         {
             "name": "2amigos/yii2-leaflet-extension",
@@ -279,6 +279,24 @@
             },
             "require": {
                 "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery.lazyload",
+            "version": "1.9.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tuupola/lazyload.git",
+                "reference": "218e50eb4999fe59ac94b939a65c8c988d1d420b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tuupola/lazyload/zipball/218e50eb4999fe59ac94b939a65c8c988d1d420b",
+                "reference": "218e50eb4999fe59ac94b939a65c8c988d1d420b"
             },
             "type": "bower-asset",
             "license": [
@@ -720,16 +738,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.9",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
-                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
                 "shasum": ""
             },
             "require": {
@@ -739,7 +757,8 @@
             "require-dev": {
                 "dominicsayers/isemail": "dev-master",
                 "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
-                "satooshi/php-coveralls": "^1.0.1"
+                "satooshi/php-coveralls": "^1.0.1",
+                "symfony/phpunit-bridge": "^4.4@dev"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -773,7 +792,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-06-23T10:14:27+00:00"
+            "time": "2019-07-19T20:52:08+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -821,6 +840,54 @@
                 "html"
             ],
             "time": "2019-07-14T18:58:38+00:00"
+        },
+        {
+            "name": "faboslav/yii2-progressive-media",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Faboslav/yii2-progressive-media.git",
+                "reference": "7363bd5601ac8c71b0940636ac8821d13d89d99b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Faboslav/yii2-progressive-media/zipball/7363bd5601ac8c71b0940636ac8821d13d89d99b",
+                "reference": "7363bd5601ac8c71b0940636ac8821d13d89d99b",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "faboslav\\progressivemedia\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Aleš Fabiánek",
+                    "email": "fabianek.ales@gmail.com",
+                    "homepage": "https://www.alesfabianek.cz"
+                }
+            ],
+            "description": "Yii2 Progressive Media is a extension for Yii2 which allows to lazyload images and iframes",
+            "keywords": [
+                "Blur",
+                "extension",
+                "faboslav",
+                "iframe",
+                "image",
+                "img",
+                "javascript",
+                "lazy",
+                "lazyload",
+                "load",
+                "loading",
+                "media",
+                "progressive",
+                "progressivemedia",
+                "yii2"
+            ],
+            "time": "2018-11-05T07:20:02+00:00"
         },
         {
             "name": "ikimea/browser",
@@ -1425,12 +1492,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "2686eeb1d77a9321a6db8a99ee07d383f20ca0ed"
+                "reference": "7be5425fb72b766b2dd7eb257da11f69c5b5b862"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/2686eeb1d77a9321a6db8a99ee07d383f20ca0ed",
-                "reference": "2686eeb1d77a9321a6db8a99ee07d383f20ca0ed",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/7be5425fb72b766b2dd7eb257da11f69c5b5b862",
+                "reference": "7be5425fb72b766b2dd7eb257da11f69c5b5b862",
                 "shasum": ""
             },
             "require": {
@@ -1469,7 +1536,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2019-06-19T07:34:58+00:00"
+            "time": "2019-07-20T03:11:38+00:00"
         },
         {
             "name": "kartik-v/yii2-helpers",
@@ -2749,6 +2816,54 @@
             "time": "2018-10-09T17:40:19+00:00"
         },
         {
+            "name": "kop/yii2-scroll-pager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kop/yii2-scroll-pager.git",
+                "reference": "9b9727ce441fbfc487044535ab6ce0b7694d810b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kop/yii2-scroll-pager/zipball/9b9727ce441fbfc487044535ab6ce0b7694d810b",
+                "reference": "9b9727ce441fbfc487044535ab6ce0b7694d810b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "webcreate/jquery-ias": "^2.2.1",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kop\\y2sp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Koptiev",
+                    "role": "Developer",
+                    "email": "ivan.koptiev@codex.systems"
+                }
+            ],
+            "description": "Infinite AJAX scrolling for Yii2 ListView widget",
+            "homepage": "http://kop.github.io/yii2-scroll-pager/",
+            "keywords": [
+                "pager",
+                "pagination",
+                "scroll",
+                "scrolling",
+                "yii",
+                "yii2"
+            ],
+            "time": "2016-07-06T19:56:33+00:00"
+        },
+        {
             "name": "mihaildev/yii2-elfinder",
             "version": "1.3.0",
             "source": {
@@ -2854,7 +2969,7 @@
             "version": "5.9.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:FortAwesome/Font-Awesome.git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
                 "reference": "ba907eaec40fab01d410c3023a5572b2cb46cea6"
             },
             "dist": {
@@ -3220,6 +3335,50 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
+            "name": "toriphes/yii2-widget-lazyload",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toriphes/yii2-widget-lazyload.git",
+                "reference": "3a4654ac9655f32888efc82fb7edf0da517d8995"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toriphes/yii2-widget-lazyload/zipball/3a4654ac9655f32888efc82fb7edf0da517d8995",
+                "reference": "3a4654ac9655f32888efc82fb7edf0da517d8995",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery.lazyload": "~1.9",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "toriphes\\lazyload\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Giulio Ganci",
+                    "email": "giulioganci@gmail.com"
+                }
+            ],
+            "description": "wrapper of http://www.appelsiini.net/projects/lazyload jquery library",
+            "keywords": [
+                "extension",
+                "image",
+                "lazyload",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-11-24T19:26:57+00:00"
+        },
+        {
             "name": "trntv/yii2-datetime-widget",
             "version": "1.1.1",
             "source": {
@@ -3312,6 +3471,46 @@
                 "yii2 tabular input"
             ],
             "time": "2019-06-17T09:43:34+00:00"
+        },
+        {
+            "name": "webcreate/jquery-ias",
+            "version": "v2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webcreate/infinite-ajax-scroll.git",
+                "reference": "97ba99a34e68a3fc186ceb518c9cff51370be24b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webcreate/infinite-ajax-scroll/zipball/97ba99a34e68a3fc186ceb518c9cff51370be24b",
+                "reference": "97ba99a34e68a3fc186ceb518c9cff51370be24b",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fieg",
+                    "email": "jeroen@webcreate.nl",
+                    "homepage": "http://webcreate.nl"
+                }
+            ],
+            "description": "Infinite Ajax Scroll: A jQuery plugin that turns your server-side pagination into an infinite scrolling one using AJAX",
+            "homepage": "https://infiniteajaxscroll.com",
+            "keywords": [
+                "ajax",
+                "ias",
+                "infinite",
+                "jquery",
+                "pagination",
+                "scroll",
+                "scrolling"
+            ],
+            "time": "2018-03-21T20:14:31+00:00"
         },
         {
             "name": "webvimark/bootstrap-switch",
@@ -4452,6 +4651,67 @@
                 "object graph"
             ],
             "time": "2019-04-07T13:18:21+00:00"
+        },
+        {
+            "name": "opis/closure",
+            "version": "3.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/closure.git",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0"
+            },
+            "require-dev": {
+                "jeremeamia/superclosure": "^2.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Opis\\Closure\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                },
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
+                }
+            ],
+            "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
+            "homepage": "https://opis.io/closure",
+            "keywords": [
+                "anonymous functions",
+                "closure",
+                "function",
+                "serializable",
+                "serialization",
+                "serialize"
+            ],
+            "time": "2019-07-09T21:58:11+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -6648,20 +6908,21 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "a6bbf55093e154e2eeb2c778af8717989495270e"
+                "reference": "726999bbcc04d8aeb6db02fd6719290793793cbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/a6bbf55093e154e2eeb2c778af8717989495270e",
-                "reference": "a6bbf55093e154e2eeb2c778af8717989495270e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/726999bbcc04d8aeb6db02fd6719290793793cbf",
+                "reference": "726999bbcc04d8aeb6db02fd6719290793793cbf",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
+                "opis/closure": "^3.3",
                 "php": ">=5.4",
                 "yiisoft/yii2": "~2.0.13"
             },
@@ -6701,7 +6962,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2019-06-04T14:21:49+00:00"
+            "time": "2019-07-23T20:20:47+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -6811,7 +7072,8 @@
         "kartik-v/yii2-label-inplace": 20,
         "kartik-v/yii2-tabs-x": 20,
         "kartik-v/yii2-editable": 20,
-        "kartik-v/yii2-grid": 20
+        "kartik-v/yii2-grid": 20,
+        "kop/yii2-scroll-pager": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

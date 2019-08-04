@@ -1,44 +1,50 @@
 <?php
 
-use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\NewsSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+use \kop\y2sp\ScrollPager;
 
-$this->title = 'News';
+if ($type == 0){
+    $this->title = Yii::t('app','Klub yangiliklari');
+}
+elseif ($type == 1){
+    $this->title = Yii::t('app','Boshqarma yangiliklari');
+}
+else{
+    $this->title = Yii::t('app','Yangiliklari');
+}
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="news-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<style>
+    #item_tag a {
+        color: #b81e20;
+        font-size: 12px;
+        padding: 0.5vh;
+        border: 1px #b81e20 solid;
+        border-radius: 4px;
+        transition: all 0.4s ease-in-out;
+    }
+</style>
 
-    <p>
-        <?= Html::a('Create News', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
+<div class=innerWrapper>
+    <main id="article" class=contentinner>
+    <?= \yii\widgets\ListView::widget([
+        'id' => 'news-list',
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'content:ntext',
-            'pic',
-            'date',
-            //'language_id',
-            //'tags',
-
-            ['class' => 'yii\grid\ActionColumn'],
+        'itemView' => '_view',
+        'itemOptions' => ['class' => 'news-item'],
+        'summary' => '',
+        'pager' => [
+            'class' => ScrollPager::className(),
+            'item' => '.news-item',
+            'enabledExtensions' => [
+                ScrollPager::EXTENSION_SPINNER,
+                ScrollPager::EXTENSION_NONE_LEFT,
+            ],
+            'noneLeftText' => Yii::t('app', 'Oxiriga yetdiz').'! :)',
         ],
-    ]); ?>
-
-    <?php Pjax::end(); ?>
-
+    ])?>
+    </main>
+    <?= \app\widgets\PromoSideWidget::widget();?>
 </div>
+

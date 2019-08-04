@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\ScoreboardType */
+/* @var $model app\models\Scoreboard */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Scoreboard Types', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Scoreboards', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="scoreboard-type-view">
+<div class="scoreboard-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -31,6 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'date',
+            'table_params',
         ],
     ]) ?>
 

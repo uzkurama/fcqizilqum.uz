@@ -4,6 +4,11 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 use app\assets\FontAwesomeAsset;
 
+
+if(Yii::$app->language == null) {
+    Yii::$app->language = 'uz';
+}
+
 AppAsset::register($this);
 FontAwesomeAsset::register($this);
 
@@ -21,7 +26,7 @@ FontAwesomeAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<?= \dominus77\sweetalert2\Alert::widget(['useSessionFlash' => true]) ?>
 <div class=wrapper>
     <?= \app\widgets\HeaderWidget::widget();?>
     <?php if (\app\controllers\SiteController::getStatus(15, 'value') == 0 && \app\controllers\SiteController::getMatchDate() != null){
@@ -31,9 +36,16 @@ FontAwesomeAsset::register($this);
         echo \app\widgets\MainSliderWidget::widget();
     }
     ?>
-    <?= var_dump(\app\controllers\SiteController::getMatchDate());?>
     <?= \app\widgets\NewsWidget::widget();?>
-    <?= \app\widgets\MatchScheduleWidget::widget();?>
+    <section class="matchSchedule" style="padding: 10px 0;">
+        <div class=container>
+            <div class=row>
+                <?= \app\widgets\MatchScheduleWidget::widget();?>
+                <?= $content;?>
+            </div>
+        </div>
+    </section>
+    <?= \app\widgets\VideoWidget::widget();?>
     <?= \app\widgets\AboutWidget::widget();?>
     <?= \app\widgets\FooterWidget::widget();?>
 </div>

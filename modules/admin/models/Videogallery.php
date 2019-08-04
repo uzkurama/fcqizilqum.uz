@@ -14,7 +14,6 @@ use Yii;
  */
 class Videogallery extends \yii\db\ActiveRecord
 {
-    public $type;
     /**
      * {@inheritdoc}
      */
@@ -30,9 +29,8 @@ class Videogallery extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'date', 'url', 'type'], 'required'],
-            [['date'], 'safe'],
+            [['date', 'title'], 'safe'],
             [['type'], 'integer'],
-            [['title'], 'string', 'max' => 2000],
             [['url'], 'string', 'max' => 500],
         ];
     }
@@ -44,9 +42,9 @@ class Videogallery extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'date' => 'Date',
-            'url' => 'Url',
+            'title' => 'Sarlavha',
+            'date' => 'Sanasi',
+            'url' => 'Manzili',
             'type' => 'Manba',
         ];
     }

@@ -50,8 +50,7 @@ $config = [
         ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
-            'dateFormat'=>'dd-MM-yyyy',
-            'datetimeFormat' => 'dd-MM-yyyy HH:mm:ss',
+            // 'dateFormat' => 'medium',
         ],
         'request' => [
             'baseUrl' => '',
@@ -89,10 +88,43 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                'language/<ln>' => 'site/language',
+                 'news/type/<type:\d>' => 'news/index',
+                 'news/post/<id:\d+>' => 'news/view',
+            ],
+        ],
+        'socialShare' => [
+            'class' => \ymaker\social\share\configurators\Configurator::class,
+            'options' => ['class' => 'social_link telegram'],
+            'enableDefaultIcons' => true,
+            'socialNetworks' => [
+                'facebook' => [
+                    'class' => \ymaker\social\share\drivers\Facebook::class,
+                    'label' => Yii::t('app', 'Facebook'),
+                ],
+                'telegram' => [
+                    'class' => \ymaker\social\share\drivers\Telegram::class,
+                    'label' => Yii::t('app', 'Telegram'),
+                ],
+                'twitter' => [
+                    'class' => \ymaker\social\share\drivers\Twitter::class,
+                    'label' => Yii::t('app', 'Twitter'),
+                ],
             ],
         ],
     ],
     'params' => $params,
+
+    'on beforeAction' => function ($event) {
+        $session = Yii::$app->session;
+
+        !$session->isActive ? $session->open() : $session->close();
+        Yii::$app->formatter->locale = $session->get('language');
+        Yii::$app->language = $session->get('language');
+
+        $session->close();
+    },
 
     'modules' => [
         'admin' => [

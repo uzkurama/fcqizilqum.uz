@@ -17,7 +17,7 @@ class NewsSearch extends News
     public function rules()
     {
         return [
-            [['id', 'language_id'], 'integer'],
+            [['id', 'language_id', 'type'], 'integer'],
             [['title', 'content', 'pic', 'date', 'tags'], 'safe'],
         ];
     }
@@ -45,10 +45,13 @@ class NewsSearch extends News
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
+            'pagination' => [
+                'pageSize' => 5,
+            ],
             'query' => $query,
         ]);
 
-        $this->load($params);
+        if (!$this->load($params)) { }
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -61,6 +64,7 @@ class NewsSearch extends News
             'id' => $this->id,
             'date' => $this->date,
             'language_id' => $this->language_id,
+            'type' => $this->type,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
@@ -69,5 +73,9 @@ class NewsSearch extends News
             ->andFilterWhere(['like', 'tags', $this->tags]);
 
         return $dataProvider;
+    }
+
+    public function formName() {
+         return '';
     }
 }

@@ -23,6 +23,8 @@ class AppAsset extends AssetBundle
         'css/vendor.css',
         'css/style.css',
         'css/layerslider.css',
+        'css/progressive-image.css',
+        'css/pace.css',
     ];
     public $js = [
         'js/vendor/modernizr.js',
@@ -30,6 +32,9 @@ class AppAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.26/moment-timezone.min.js',
         'js/main.js',
+        'js/progressive-image.js',
+        'js/jquery.sticky.js',
+        'js/vendor/pace.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

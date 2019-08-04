@@ -57,6 +57,7 @@ class News extends \yii\db\ActiveRecord
         ];
     }
 
+
     public function getLang()
     {
         return $this->hasOne(Language::className(), ['id' => 'language_id']);

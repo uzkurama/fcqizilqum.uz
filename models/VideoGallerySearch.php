@@ -1,15 +1,15 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\ScoreboardType;
+use app\models\Videogallery;
 
 /**
- * ScoreboardTypeSearch represents the model behind the search form of `app\modules\admin\models\ScoreboardType`.
+ * VideoGallerySearch represents the model behind the search form of `app\models\Videogallery`.
  */
-class ScoreboardTypeSearch extends ScoreboardType
+class VideoGallerySearch extends Videogallery
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ScoreboardTypeSearch extends ScoreboardType
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['id', 'date', 'type'], 'integer'],
+            [['title', 'url'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ScoreboardTypeSearch extends ScoreboardType
      */
     public function search($params)
     {
-        $query = ScoreboardType::find();
+        $query = Videogallery::find();
 
         // add conditions that should always apply here
 
@@ -59,9 +59,12 @@ class ScoreboardTypeSearch extends ScoreboardType
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'date' => $this->date,
+            'type' => $this->type,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'url', $this->url]);
 
         return $dataProvider;
     }

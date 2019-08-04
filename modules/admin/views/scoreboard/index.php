@@ -7,36 +7,30 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\modules\admin\models\ScoreboardSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Turnirlar jadvali';
+$this->title = 'Turnirlar jadvallari';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="scoreboard-index">
 
     <p>
-        <?= Html::a('Yangilash', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Jadval turini kiritish', ['scoreboard-type/create'], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('Tuzish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <div class="row">
-        <div class="col-md-6">
-            <?= GridView::widget([
-                'dataProvider' => $dataProvider,
-                'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-                    [
-                        'label' => 'Klub'
-                    ],
-                    'win',
-                    'lose',
-                    'draw',
-                    'pts',
-                    'type',
-                ],
-            ]); ?>
-        </div>
-    </div>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            [
+                'label' => 'Nomi',
+                'value' => function($model) {
+                    return \app\components\DefaultComponent::name($model->name);
+                }
+            ],
+            'date:datetime',
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 
     <?php Pjax::end(); ?>
 

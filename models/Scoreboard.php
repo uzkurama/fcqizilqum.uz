@@ -1,23 +1,25 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use Yii;
 
 /**
- * This is the model class for table "scoreboard_type".
+ * This is the model class for table "scoreboard".
  *
  * @property int $id
  * @property array $name
+ * @property int $date
+ * @property array $table_params
  */
-class ScoreboardType extends \yii\db\ActiveRecord
+class Scoreboard extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'scoreboard_type';
+        return 'scoreboard';
     }
 
     /**
@@ -26,8 +28,9 @@ class ScoreboardType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name'], 'safe'],
+            [['name', 'date', 'table_params'], 'required'],
+            [['name', 'table_params'], 'safe'],
+            [['date'], 'integer'],
         ];
     }
 
@@ -39,6 +42,8 @@ class ScoreboardType extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'date' => 'Date',
+            'table_params' => 'Table Params',
         ];
     }
 }

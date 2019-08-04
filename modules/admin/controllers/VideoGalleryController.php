@@ -69,9 +69,11 @@ class VideoGalleryController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if($model->type == 0){
                 $model->url = str_replace('watch/', 'video/embed/', $model->url);
+                $model->date = strtotime($model->date);
             }
             else if ($model->type == 1) {
                 $model->url = str_replace('/watch?v=', '/embed/', $model->url);
+                $model->date = strtotime($model->date);
             }
             else {
                 Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_ERROR, [
@@ -113,9 +115,11 @@ class VideoGalleryController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if($model->type == 0){
                 $model->url = str_replace('watch/', 'video/embed/', $model->url);
+                $model->date = strtotime($model->date);
             }
             else if ($model->type == 1) {
                 $model->url = str_replace('/watch?v=', '/embed/', $model->url);
+                $model->date = strtotime($model->date);
             }
             else {
                 Yii::$app->session->setFlash(\dominus77\sweetalert2\Alert::TYPE_ERROR, [

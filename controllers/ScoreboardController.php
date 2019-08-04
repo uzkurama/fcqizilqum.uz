@@ -1,18 +1,18 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\modules\admin\models\ScoreboardType;
-use app\modules\admin\models\ScoreboardTypeSearch;
+use app\models\Scoreboard;
+use app\models\ScoreboardSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ScoreboardTypeController implements the CRUD actions for ScoreboardType model.
+ * ScoreboardController implements the CRUD actions for Scoreboard model.
  */
-class ScoreboardTypeController extends Controller
+class ScoreboardController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Lists all ScoreboardType models.
+     * Lists all Scoreboard models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ScoreboardTypeSearch();
+        $searchModel = new ScoreboardSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Displays a single ScoreboardType model.
+     * Displays a single Scoreboard model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Creates a new ScoreboardType model.
+     * Creates a new Scoreboard model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ScoreboardType();
+        $model = new Scoreboard();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Updates an existing ScoreboardType model.
+     * Updates an existing Scoreboard model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Deletes an existing ScoreboardType model.
+     * Deletes an existing Scoreboard model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class ScoreboardTypeController extends Controller
     }
 
     /**
-     * Finds the ScoreboardType model based on its primary key value.
+     * Finds the Scoreboard model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ScoreboardType the loaded model
+     * @return Scoreboard the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ScoreboardType::findOne($id)) !== null) {
+        if (($model = Scoreboard::findOne($id)) !== null) {
             return $model;
         }
 

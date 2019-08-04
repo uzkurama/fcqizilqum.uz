@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\ScoreboardType */
+/* @var $model app\models\Scoreboard */
 
-$this->title = 'Update Scoreboard Type: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Scoreboard Types', 'url' => ['index']];
+$this->title = 'Update Scoreboard: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Scoreboards', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="scoreboard-type-update">
+<div class="scoreboard-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

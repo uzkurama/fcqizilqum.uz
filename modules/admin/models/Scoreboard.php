@@ -8,12 +8,9 @@ use Yii;
  * This is the model class for table "scoreboard".
  *
  * @property int $id
- * @property int $team_id
- * @property int $win
- * @property int $lose
- * @property int $draw
- * @property int $pts
- * @property int $type
+ * @property int $name
+ * @property int $date
+ * @property array $table_params
  */
 class Scoreboard extends \yii\db\ActiveRecord
 {
@@ -31,8 +28,8 @@ class Scoreboard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['team_id', 'win', 'lose', 'draw', 'pts', 'type'], 'required'],
-            [['team_id', 'win', 'lose', 'draw', 'pts', 'type'], 'integer'],
+            [['name', 'date', 'table_params'], 'required'],
+            [['table_params', 'date', 'name'], 'safe'],
         ];
     }
 
@@ -42,13 +39,14 @@ class Scoreboard extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'team_id' => 'Team ID',
-            'win' => 'Win',
-            'lose' => 'Lose',
-            'draw' => 'Draw',
-            'pts' => 'Pts',
-            'type' => 'Type',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Nomi'),
+            'date' => Yii::t('app', 'Sanasi'),
+            'table_params' => Yii::t('app', 'Jadval parametrlari'),
         ];
+    }
+
+    public function getTeam() {
+        return $this->hasMany(Teams::className(), ['id' => 'table_params']);
     }
 }

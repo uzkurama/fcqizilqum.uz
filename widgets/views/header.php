@@ -9,7 +9,7 @@ $current_lang_code = app\models\Country::find()->where(['language_code' => Yii::
 <header class=header-main>
     <div class="header-lower clearfix">
         <div class=container-fluid style="padding: 0.5em 2em;">
-            <div class=row><h1 class=logo><a href="<?= Yii::$app->homeUrl;?>"><img src=<?= Yii::$app->request->baseUrl.'/images/logo.png';?> alt=image></a></h1>
+            <div class=row><h1 class=logo><a href="<?= Yii::$app->homeUrl;?>"><img src=<?= Yii::$app->request->baseUrl.'/images/logo.png';?>></a></h1>
 
                 <div class=menubar>
                     <nav class=navbar>
@@ -28,9 +28,15 @@ $current_lang_code = app\models\Country::find()->where(['language_code' => Yii::
                                     'options' => ['class' => 'nav navbar-nav menu-bar'],
                                     'encodeLabels' => false,
                                     'items' => [
-                                        ['label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Klub'), 'url' => ['/site/index']],
-                                        ['label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Jamoa'), 'url' => ['/site/about']],
-                                        ['label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Yangiliklar'), 'url' => ['/site/contact']],
+                                        ['label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Klub'), 'url' => ['/about']],
+                                        ['label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Jamoa'), 'url' => ['/team']],
+                                        [
+                                            'label' => '<span></span><span></span><span></span><span></span>'.Yii::t('app', 'Yangiliklar'),
+                                            'items' => [
+                                                ['label' => Yii::t('app', 'Klub yangiliklari'), 'url' => ['/news/type/0']],
+                                                ['label' => Yii::t('app', 'Boshqarma yangiliklari'), 'url' => ['/news/type/1']],
+                                            ],
+                                        ],
                                         [
                                             'label' => '<span></span><span></span><span></span><span></span>'.Html::img(Yii::$app->request->baseUrl.'/images/flags/'.$current_lang_code->language_code.'.gif', ['class' => 'flag']).$current_lang->name,
                                             'items' => $lang_array,

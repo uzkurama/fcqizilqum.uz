@@ -8,12 +8,14 @@ use app\models\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\Pagination;
 
 /**
  * NewsController implements the CRUD actions for News model.
  */
 class NewsController extends Controller
 {
+    public $layout = 'content';
     /**
      * {@inheritdoc}
      */
@@ -33,14 +35,15 @@ class NewsController extends Controller
      * Lists all News models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($type)
     {
         $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort->defaultOrder = ['date' => SORT_DESC];
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'type' => $type,
         ]);
     }
 

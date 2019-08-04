@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\ScoreboardType */
+/* @var $model app\models\Videogallery */
 
-$this->title = 'Create Scoreboard Type';
-$this->params['breadcrumbs'][] = ['label' => 'Scoreboard Types', 'url' => ['index']];
+$this->title = 'Create Videogallery';
+$this->params['breadcrumbs'][] = ['label' => 'Videogalleries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="scoreboard-type-create">
+<div class="videogallery-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
